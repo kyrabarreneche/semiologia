@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Síndromes Hepatobiliares — Kyra Barreneche</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#180810;--surf:#231020;--surf2:#2e142a;--surf3:#3a1a34;
+  --pk:#c0507a;--pk2:#d97aaa;--pk3:#edaace;--pk4:#fce8f2;
+  --gold:#e8c07a;--teal:#6dcfb8;--red:#d95560;
+  --tx:#fdf0f6;--tx2:#d4a0be;--tx3:#a07090;
+  --bdr:rgba(217,122,170,.15);--bdrS:rgba(217,122,170,.30);
+  --r:12px;--rs:8px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.75}
+/* PROGRESS */
+#pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--pk),var(--pk3),var(--gold));z-index:9999;width:0%;transition:width .1s linear}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(24,8,16,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 1.4rem}
+.nbrand{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--pk3);letter-spacing:.03em}
+.nlinks{display:flex;gap:0;list-style:none}
+.nlinks a{color:var(--tx3);text-decoration:none;font-size:.63rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:.28rem .5rem;border-radius:6px;transition:all .2s}
+.nlinks a:hover{color:var(--pk3);background:rgba(217,122,170,.1)}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at 30% 25%,rgba(192,80,122,.10) 0%,transparent 60%),radial-gradient(ellipse at 70% 75%,rgba(232,192,122,.06) 0%,transparent 60%);position:relative;overflow:hidden}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pk2);margin-bottom:.9rem}
+.htitle{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,4.6rem);font-weight:900;line-height:1.05;margin-bottom:.5rem}
+.htitle em{color:var(--pk2);font-style:italic}
+.hsub{font-size:.88rem;color:var(--tx2);max-width:520px;margin:0 auto 1.8rem;line-height:1.65}
+.author-pill{display:inline-flex;align-items:center;gap:.8rem;background:linear-gradient(135deg,rgba(192,80,122,.14),rgba(232,192,122,.07));border:1px solid var(--bdrS);border-radius:100px;padding:.55rem 1.4rem;margin-bottom:.9rem}
+.ava{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk3));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.88rem;color:#fff;flex-shrink:0}
+.ainfo{text-align:left}
+.albl{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);display:block}
+.aname{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--pk3)}
+.hmeta{font-family:'IBM Plex Mono',monospace;font-size:.64rem;color:var(--tx3);letter-spacing:.07em}
+.scue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.45rem;color:var(--tx3);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;animation:fl 3s ease-in-out infinite}
+.sline{width:1px;height:34px;background:linear-gradient(to bottom,var(--pk2),transparent)}
+@keyframes fl{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-7px)}}
+/* CASCADE MAP */
+.thesis{background:linear-gradient(135deg,var(--surf2),var(--surf3));border:1px solid var(--bdrS);border-left:4px solid var(--pk2);border-radius:var(--r);padding:1.5rem 2rem;margin:0 auto 2.5rem;max-width:780px;text-align:center}
+.thesis p{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--pk3);line-height:1.7;margin:0}
+.thesis span{font-family:'IBM Plex Sans',sans-serif;font-style:normal;font-size:.76rem;color:var(--tx3);display:block;margin-top:.45rem}
+/* FLOW */
+.flow-chain{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0;justify-content:center}
+.flow-node{background:var(--surf2);border:1px solid var(--bdrS);border-radius:var(--rs);padding:.55rem 1rem;font-size:.8rem;font-weight:600;color:var(--pk3);white-space:nowrap}
+.flow-node.active{background:rgba(192,80,122,.18);border-color:var(--pk)}
+.flow-arrow{color:var(--pk2);font-size:1.1rem;flex-shrink:0}
+/* MAIN */
+main{max-width:940px;margin:0 auto;padding:4rem 2rem 6rem}
+section{margin-bottom:5rem;scroll-margin-top:70px}
+.sh{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:.8rem;border-bottom:1px solid var(--bdr)}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--pk2);letter-spacing:.15em;background:rgba(217,122,170,.1);padding:.25rem .6rem;border-radius:100px;border:1px solid var(--bdr);white-space:nowrap}
+.stitle{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--tx);line-height:1.2}
+.stitle em{color:var(--pk2);font-style:italic}
+p{color:var(--tx2);margin-bottom:1rem;line-height:1.8}
+p strong{color:var(--tx);font-weight:600}
+/* CARD */
+.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:1.35rem 1.55rem;margin-bottom:1.1rem;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--bdrS);box-shadow:0 2px 18px rgba(192,80,122,.07)}
+.ctitle{font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--pk3);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.ctitle::before{content:'';display:inline-block;width:16px;height:2px;background:var(--pk2);border-radius:2px;flex-shrink:0}
+/* CALLOUTS */
+.cl{border-radius:var(--r);padding:1.05rem 1.25rem;margin:1.25rem 0;border-left:3px solid}
+.cl-f{background:rgba(192,80,122,.07);border-color:var(--pk)}
+.cl-a{background:rgba(232,192,122,.07);border-color:var(--gold)}
+.cl-p{background:rgba(109,207,184,.07);border-color:var(--teal)}
+.cl-d{background:rgba(217,85,96,.08);border-color:var(--red)}
+.clbl{font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.45rem;display:flex;align-items:center;gap:.38rem}
+.cl-f .clbl{color:var(--pk2)}.cl-a .clbl{color:var(--gold)}.cl-p .clbl{color:var(--teal)}.cl-d .clbl{color:var(--red)}
+.cl p{font-size:.87rem;margin:0}
+/* ACCORDION */
+.acc{border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:.65rem}
+.acc-h{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.15rem;cursor:pointer;background:var(--surf);transition:background .2s;user-select:none}
+.acc-h:hover{background:var(--surf2)}
+.acc-t{font-weight:600;color:var(--tx);font-size:.88rem;display:flex;align-items:center;gap:.5rem}
+.acc-i{font-size:.66rem;color:var(--pk2);transition:transform .3s;font-family:'IBM Plex Mono',monospace}
+.acc.open .acc-i{transform:rotate(180deg)}
+.acc-b{display:none;padding:.95rem 1.15rem;background:var(--surf);border-top:1px solid var(--bdr)}
+.acc.open .acc-b{display:block}
+.acc-b p{font-size:.86rem;margin-bottom:.5rem}.acc-b p:last-child{margin:0}
+/* GRID */
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.1rem 0}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.85rem;margin:1.1rem 0}
+/* CASCADE */
+.casc{display:flex;flex-direction:column;position:relative;padding-left:2.1rem;margin:1.3rem 0}
+.casc::before{content:'';position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:linear-gradient(to bottom,var(--pk),rgba(217,122,170,.1));border-radius:2px}
+.ci{position:relative;padding:.75rem 0 .75rem .95rem;border-bottom:1px solid var(--bdr)}
+.ci:last-child{border-bottom:none}
+.ci::before{content:'';position:absolute;left:-1.78rem;top:1.02rem;width:10px;height:10px;border-radius:50%;border:2px solid var(--pk2);background:var(--bg)}
+.cst{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--pk2);letter-spacing:.12em;margin-bottom:.18rem}
+.cn{font-weight:600;color:var(--tx);font-size:.91rem;margin-bottom:.2rem}
+.cd{font-size:.83rem;color:var(--tx2);line-height:1.6}
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;margin:1.1rem 0;font-size:.85rem;display:block;overflow-x:auto}
+.tbl thead tr{background:var(--surf2);border-bottom:2px solid var(--bdrS)}
+.tbl th{padding:.7rem .95rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pk3);font-weight:500;white-space:nowrap}
+.tbl td{padding:.65rem .95rem;border-bottom:1px solid var(--bdr);color:var(--tx2);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(217,122,170,.03)}
+.tdl{font-weight:600;color:var(--pk3);white-space:nowrap}
+/* DIVIDER */
+hr.d{border:none;border-top:1px solid var(--bdr);margin:2.8rem 0}
+/* TAGS */
+.tag{display:inline-block;background:rgba(217,122,170,.1);border:1px solid var(--bdr);border-radius:100px;padding:.16rem .58rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--pk3);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-right:.28rem;margin-bottom:.28rem}
+ul,ol{padding-left:1.35rem;color:var(--tx2)}
+li{margin-bottom:.38rem;font-size:.89rem;line-height:1.7}
+li strong{color:var(--tx)}
+
+/* ===== SYNDROME COLOR CODING ===== */
+.s-cole{--sc:#e8b06a;--scl:rgba(232,176,106,.12)}
+.s-cole .sh{border-color:rgba(232,176,106,.25)}
+.s-cole .stitle em,.s-cole .snum{color:var(--sc)}
+.s-cole .snum{background:rgba(232,176,106,.1);border-color:rgba(232,176,106,.2)}
+.s-cole .ctitle::before{background:var(--sc)}
+.s-cole .ctitle{color:var(--sc)}
+.s-cole .casc::before{background:linear-gradient(to bottom,var(--sc),rgba(232,176,106,.1))}
+.s-cole .ci::before{border-color:var(--sc)}
+
+.s-cole2{--sc:#d97aaa;--scl:rgba(217,122,170,.12)}
+.s-cole2 .sh{border-color:rgba(217,122,170,.25)}
+.s-cole2 .stitle em,.s-cole2 .snum{color:var(--sc)}
+.s-cole2 .snum{background:rgba(217,122,170,.1);border-color:rgba(217,122,170,.2)}
+.s-cole2 .ctitle::before{background:var(--sc)}
+.s-cole2 .ctitle{color:var(--sc)}
+
+.s-cole3{--sc:#e87a7a;--scl:rgba(232,122,122,.12)}
+.s-cole3 .sh{border-color:rgba(232,122,122,.25)}
+.s-cole3 .stitle em,.s-cole3 .snum{color:var(--sc)}
+.s-cole3 .snum{background:rgba(232,122,122,.1);border-color:rgba(232,122,122,.2)}
+.s-cole3 .ctitle::before{background:var(--sc)}
+.s-cole3 .ctitle{color:var(--sc)}
+
+.s-pnc{--sc:#7ab8e8;--scl:rgba(122,184,232,.12)}
+.s-pnc .sh{border-color:rgba(122,184,232,.25)}
+.s-pnc .stitle em,.s-pnc .snum{color:var(--sc)}
+.s-pnc .snum{background:rgba(122,184,232,.1);border-color:rgba(122,184,232,.2)}
+.s-pnc .ctitle::before{background:var(--sc)}
+.s-pnc .ctitle{color:var(--sc)}
+
+.s-col{--sc:#7ae8b8;--scl:rgba(122,232,184,.12)}
+.s-col .sh{border-color:rgba(122,232,184,.25)}
+.s-col .stitle em,.s-col .snum{color:var(--sc)}
+.s-col .snum{background:rgba(122,232,184,.1);border-color:rgba(122,232,184,.2)}
+.s-col .ctitle::before{background:var(--sc)}
+.s-col .ctitle{color:var(--sc)}
+
+/* QUIZ */
+#quiz-wrap{background:var(--surf);border:1px solid var(--bdr);border-radius:16px;padding:2rem;margin-top:2rem}
+.qhdr{text-align:center;margin-bottom:2rem;padding-bottom:1.4rem;border-bottom:1px solid var(--bdr)}
+.qbadge{display:inline-block;background:rgba(192,80,122,.12);border:1px solid var(--pk);border-radius:100px;padding:.26rem .82rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--pk2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem}
+.qtitle{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--tx);margin-bottom:.38rem}
+.qdesc{font-size:.82rem;color:var(--tx3);max-width:480px;margin:0 auto;line-height:1.6}
+/* Quiz nav tabs */
+.qtabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;justify-content:center}
+.qtab{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--rs);padding:.4rem .9rem;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--tx3);cursor:pointer;transition:all .2s;letter-spacing:.05em;text-transform:uppercase}
+.qtab:hover,.qtab.active{color:var(--pk3);border-color:var(--bdrS);background:rgba(217,122,170,.1)}
+.qblock{display:none}.qblock.show{display:block}
+.qcard{background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--r);padding:1.4rem;margin-bottom:1.2rem;transition:border-color .2s}
+.qcard.answered{border-color:var(--bdrS)}
+.qhd{display:flex;align-items:flex-start;gap:.85rem;margin-bottom:.9rem}
+.qn{flex-shrink:0;width:28px;height:28px;border-radius:7px;background:rgba(217,122,170,.12);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;color:var(--pk2)}
+.qstem{font-size:.88rem;color:var(--tx);line-height:1.7;font-weight:500}
+.qcase{background:rgba(0,0,0,.22);border-left:2px solid var(--pk);border-radius:0 var(--rs) var(--rs) 0;padding:.7rem .9rem;margin-bottom:.85rem;font-size:.83rem;color:var(--tx2);line-height:1.72;font-style:italic}
+.qqst{font-size:.87rem;font-weight:600;color:var(--tx);margin-bottom:.85rem}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin-bottom:.85rem}
+.opt{display:flex;align-items:flex-start;gap:.7rem;padding:.65rem .9rem;border:1px solid var(--bdr);border-radius:var(--rs);cursor:pointer;background:var(--surf);transition:all .18s}
+.opt:hover{border-color:var(--pk2);background:rgba(217,122,170,.05)}
+.opt.sel{border-color:var(--pk2);background:rgba(217,122,170,.08)}
+.opt.ok{border-color:#5ab87a;background:rgba(90,184,122,.08)}
+.opt.ng{border-color:#d95560;background:rgba(217,85,96,.08)}
+.ol{flex-shrink:0;width:21px;height:21px;border-radius:5px;background:var(--surf3);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.63rem;font-weight:600;color:var(--tx3);transition:all .18s}
+.opt.sel .ol{color:var(--pk3);border-color:var(--pk2)}
+.opt.ok .ol{color:#5ab87a;border-color:#5ab87a;background:rgba(90,184,122,.15)}
+.opt.ng .ol{color:#d95560;border-color:#d95560;background:rgba(217,85,96,.15)}
+.otxt{font-size:.84rem;color:var(--tx2);line-height:1.58;padding-top:.04rem}
+.cbtn{background:var(--pk);border:none;border-radius:var(--rs);padding:.52rem 1.2rem;color:#fff;font-family:'IBM Plex Sans',sans-serif;font-size:.79rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.03em}
+.cbtn:hover{background:var(--pk2);transform:translateY(-1px)}
+.cbtn:disabled{background:var(--surf3);color:var(--tx3);cursor:not-allowed;transform:none}
+.fb{display:none;margin-top:.85rem;padding:.9rem 1.05rem;border-radius:var(--rs);font-size:.83rem;line-height:1.7}
+.fb.ok-fb{display:block;background:rgba(90,184,122,.08);border:1px solid rgba(90,184,122,.28);color:#a8e0ba}
+.fb.ng-fb{display:block;background:rgba(217,85,96,.08);border:1px solid rgba(217,85,96,.28);color:#f0a8aa}
+.fbl{font-weight:700;margin-bottom:.32rem;font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
+.ok-fb .fbl{color:#5ab87a}.ng-fb .fbl{color:#d95560}
+/* section quiz scores */
+.qscore{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--tx3);margin-top:.8rem;text-align:right}
+#total-panel{display:none;background:var(--surf2);border:1px solid var(--bdrS);border-radius:var(--r);padding:2rem;text-align:center;margin-top:1.8rem}
+.tscore{font-family:'Playfair Display',serif;font-size:3.4rem;font-weight:900;color:var(--pk3);display:block;margin-bottom:.25rem}
+.tslbl{color:var(--tx3);font-size:.82rem;margin-bottom:.85rem}
+.tsmsg{font-size:.89rem;color:var(--tx2);max-width:420px;margin:0 auto 1.35rem;line-height:1.6}
+.rbtn{background:transparent;border:1px solid var(--bdrS);border-radius:var(--rs);padding:.52rem 1.3rem;color:var(--pk3);font-family:'IBM Plex Sans',sans-serif;font-size:.79rem;cursor:pointer;transition:all .2s;font-weight:500}
+.rbtn:hover{background:rgba(217,122,170,.1);border-color:var(--pk2)}
+/* COMPARATIVE TABLE */
+.comp-table{width:100%;border-collapse:collapse;font-size:.82rem;display:block;overflow-x:auto;margin:1.5rem 0}
+.comp-table th{background:var(--surf2);padding:.75rem .9rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--bdrS);white-space:nowrap}
+.comp-table th:first-child{color:var(--tx3)}
+.comp-table td{padding:.65rem .9rem;border:1px solid var(--bdr);vertical-align:top;color:var(--tx2);line-height:1.55}
+.comp-table td:first-child{font-weight:700;color:var(--pk3);background:var(--surf2);white-space:nowrap}
+.comp-table tr:hover td{background:rgba(217,122,170,.03)}
+.comp-table .ok{color:#5ab87a;font-weight:600}.comp-table .ng{color:#d95560;font-weight:600}.comp-table .maybe{color:var(--gold);font-weight:600}
+/* footer */
+footer{border-top:1px solid var(--bdr);padding:2.4rem 2rem;text-align:center;color:var(--tx3);font-size:.74rem;max-width:940px;margin:0 auto}
+.fn{font-family:'Playfair Display',serif;font-size:.93rem;font-weight:700;color:var(--pk3);display:block;margin-bottom:.28rem}
+.fq{font-family:'IBM Plex Mono',monospace;font-style:italic;color:var(--pk);font-size:.68rem;display:block;margin-top:.45rem;letter-spacing:.04em}
+@media(max-width:640px){.nlinks{display:none}main{padding:3rem 1.1rem 5rem}.g2,.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav>
+  <span class="nbrand">Síndromes Hepatobiliares</span>
+  <ul class="nlinks">
+    <li><a href="#s-cole">Colelitíase</a></li>
+    <li><a href="#s-cole2">Colestase</a></li>
+    <li><a href="#s-cole3">Colecistite</a></li>
+    <li><a href="#s-pnc">Pancreatite</a></li>
+    <li><a href="#s-col">Colangite</a></li>
+    <li><a href="#comparativo">Comparativo</a></li>
+    <li><a href="#simulado">Simulado</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">Semiologia I · Síndromes Hepatobiliares · CENSUPEG 2026</p>
+  <h1 class="htitle">Síndromes <em>Hepatobiliares</em></h1>
+  <p class="hsub">Colelitíase · Colestase · Colecistite · Pancreatite · Colangite — em cascata fisiopatológica, do cálculo à sepse biliar.</p>
+  <div class="author-pill">
+    <div class="ava">K</div>
+    <div class="ainfo">
+      <span class="albl">Material elaborado por</span>
+      <span class="aname">Kyra Barreneche</span>
+    </div>
+  </div>
+  <p class="hmeta">Prof. Dr. João Vitor Galo Esteves · Faculdade CENSUPEG · Joinville / SC</p>
+  <div class="scue"><span>role para explorar</span><div class="sline"></div></div>
+</div>
+
+<main>
+<div class="thesis">
+  <p>"O ponto da obstrução determina a síndrome. A síndrome determina o quadro clínico. O quadro clínico determina a semiologia."</p>
+  <span>— Tese central da aula de Síndromes Hepatobiliares · Prof. Dr. João Vitor Galo Esteves</span>
+</div>
+
+<!-- FLOW CHAIN -->
+<div class="flow-chain">
+  <div class="flow-node active">Colelitíase</div><div class="flow-arrow">→</div>
+  <div class="flow-node">Colestase</div><div class="flow-arrow">→</div>
+  <div class="flow-node">Colecistite</div><div class="flow-arrow">→</div>
+  <div class="flow-node">Pancreatite</div><div class="flow-arrow">→</div>
+  <div class="flow-node">Colangite</div>
+</div>
+<p style="text-align:center;font-size:.78rem;color:var(--tx3);margin-bottom:3rem">Cada síndrome pode surgir independentemente, mas todas compartilham o cálculo biliar como origem primária mais comum.</p>
+
+<!-- ===================================================== -->
+<!-- 01 · COLELITÍASE -->
+<!-- ===================================================== -->
+<section id="s-cole" class="s-cole">
+<div class="sh"><span class="snum">01</span><h2 class="stitle">Colelitíase — <em>a entidade-mãe</em></h2></div>
+
+<p>Definida como a <strong>presença de cálculos na vesícula biliar ou na via biliar</strong>. Afeta ~15% da população ocidental adulta, com predomínio feminino (2–3:1). A maioria é assintomática; quando sintomática, a manifestação clínica validada é a <strong>cólica biliar</strong>.</p>
+
+<div class="cl cl-f"><div class="clbl">⬡ Tese central</div><p>A colelitíase é o ponto de partida de todas as síndromes biliares. O cálculo se forma na vesícula e, ao migrar, determina a síndrome de acordo com onde impacta na árvore biliar.</p></div>
+
+<div class="card">
+<div class="ctitle">Litogênese — como nasce o cálculo de colesterol</div>
+<div class="casc">
+  <div class="ci"><div class="cst">MECANISMO 1</div><div class="cn">Supersaturação biliar em colesterol</div><div class="cd">Excesso de colesterol relativo a sais biliares (solubilizadores) e fosfolipídios (lecitina). O estrogênio aumenta síntese hepática de colesterol; a obesidade amplifica. Quando a capacidade de solubilização é excedida, o colesterol precipita.</div></div>
+  <div class="ci"><div class="cst">MECANISMO 2</div><div class="cn">Nucleação acelerada</div><div class="cd">Precipitação e cristalização do colesterol em microcristais. Proteínas nucleadoras (mucinas, glicoproteínas) aceleram esse processo. Pode ocorrer mesmo com saturação moderada em indivíduos geneticamente predispostos.</div></div>
+  <div class="ci"><div class="cst">MECANISMO 3</div><div class="cn">Hipomotilidade vesicular</div><div class="cd">Estase biliar aumenta o tempo de residência dos cristais → crescimento do cálculo. Presente em: gestação (progesterona relaxa músculo liso), jejum prolongado, nutrição parenteral, cirurgia bariátrica, vagotomia.</div></div>
+</div>
+</div>
+
+<div class="g3">
+  <div class="card"><div class="ctitle">Cálculos de Colesterol</div><p><span class="tag">~75–90%</span><strong>Amarelos/brancos</strong>, não radiopacos. Formados pelos 3 mecanismos acima. Associados aos 5 F's. Geram sombra acústica posterior à USG.</p></div>
+  <div class="card"><div class="ctitle">Pigmentares Pretos</div><p><span class="tag">Hemólise / Cirrose</span><strong>Bilirrubinato de cálcio</strong> por hipersaturação de bilirrubina conjugada. Frequentemente radiopacos. Associados a anemias hemolíticas (falciforme, talassemia), cirrose.</p></div>
+  <div class="card"><div class="ctitle">Pigmentares Castanhos</div><p><span class="tag">Infecção / Estase</span>Bilirrubinato + ácidos graxos. Associados a <strong>colonização bacteriana intraductal</strong>. Encontrados mais na via biliar. Marrons, friáveis.</p></div>
+</div>
+
+<div class="card"><div class="ctitle">Os 5 F's — fatores de risco clássicos</div>
+<table class="tbl"><thead><tr><th>F</th><th>Significado</th><th>Mecanismo</th></tr></thead><tbody>
+<tr><td class="tdl">Female</td><td>Sexo feminino</td><td>Estrogênio ↑ síntese/secreção biliar de colesterol; progesterona ↓ motilidade vesicular</td></tr>
+<tr><td class="tdl">Forty</td><td>Idade ≥ 40 anos</td><td>Declínio progressivo da motilidade vesicular; maior tempo de nucleação</td></tr>
+<tr><td class="tdl">Fat</td><td>Obesidade/sobrepeso</td><td>↑ Síntese hepática de colesterol; hipomotilidade por maior volume vesicular</td></tr>
+<tr><td class="tdl">Fertile</td><td>Gestação/multiparidade</td><td>Progesterona → hipomotilidade; estrogênio → hipersecreção de colesterol</td></tr>
+<tr><td class="tdl">Fair</td><td>Etnia caucasiana</td><td>Polimorfismos em ABCG5/ABCG8 (transportadores de colesterol biliar)</td></tr>
+</tbody></table>
+<div class="cl cl-a" style="margin-top:.8rem;margin-bottom:0"><div class="clbl">⚠ Atenção</div><p>Os 5 F's são mnemônica didática — não use como critério excludente. Ameríndios, hispânicos e pacientes pós-bariátrica têm alto risco e escapam do padrão. Perda ponderal rápida mobiliza colesterol e gera hipomotilidade — risco real de litíase.</p></div>
+</div>
+
+<div class="card"><div class="ctitle">Quadro clínico — silente vs. cólica biliar</div>
+<p><strong>Cálculo silente (assintomático):</strong> diagnóstico incidental, risco anual de complicação ~1–2%. Conduta expectante na maioria. Indicações para operar assintomáticos: cálculos &gt;3 cm, vesícula em porcelana, pólipos associados, anemias hemolíticas.</p>
+<p><strong>Cólica biliar:</strong> única manifestação validada da colelitíase sintomática. <strong>Dispepsia e flatulência NÃO são sintomas específicos da colelitíase.</strong></p>
+<div class="casc">
+  <div class="ci"><div class="cst">GATILHO</div><div class="cn">Refeição gordurosa → liberação de CCK</div><div class="cd">Colecistoquinina estimula contração vesicular vigorosa.</div></div>
+  <div class="ci"><div class="cst">EVENTO</div><div class="cn">Impactação transitória do cálculo no ducto cístico</div><div class="cd">O cálculo é empurrado para o infundíbulo/bolsa de Hartmann ou para o ducto cístico, obstruindo-o temporariamente.</div></div>
+  <div class="ci"><div class="cst">DOR</div><div class="cn">Distensão vesicular + contração contra a obstrução</div><div class="cd"><strong>Localização:</strong> HCD ou epigástrio. <strong>Irradiação:</strong> escápula direita, ombro direito (nervo frênico C3–C5, irritação diafragmática referida). <strong>Qualidade:</strong> visceral, peso/cólica. <strong>Duração:</strong> 30 min a 4–6 h.</div></div>
+  <div class="ci"><div class="cst">RESOLUÇÃO</div><div class="cn">Desobstrução espontânea → dor cede</div><div class="cd">Sem febre, sem icterícia, sem Murphy. Se a dor não cede em &lt;6h → suspeitar de colecistite aguda.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Semiologia e exame físico</div>
+<table class="tbl"><thead><tr><th>Parâmetro</th><th>Cólica biliar</th><th>Significado</th></tr></thead><tbody>
+<tr><td class="tdl">Postura</td><td>Inquieto, busca posição</td><td>Dor visceral pura — sem peritonite, movimento não piora</td></tr>
+<tr><td class="tdl">Febre</td><td>Ausente</td><td>Presença indica complicação (colecistite, colangite)</td></tr>
+<tr><td class="tdl">Icterícia</td><td>Ausente</td><td>Presença indica migração para colédoco ou Mirizzi</td></tr>
+<tr><td class="tdl">Ponto cístico</td><td>Doloroso na crise</td><td>HCD na linha hemiclavicular, 9ª cartilagem costal — projeção do fundo vesicular</td></tr>
+<tr><td class="tdl">Sinal de Murphy</td><td>Negativo (ou positivo na crise aguda)</td><td>Murphy positivo = colecistite; negativo = cólica simples</td></tr>
+<tr><td class="tdl">Vesícula palpável</td><td>Não palpável</td><td>Vesícula palpável = sempre patológica</td></tr>
+</tbody></table>
+</div>
+
+<div class="card"><div class="ctitle">Diagnóstico e exames</div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Ultrassonografia abdominal — exame de eleição</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Achados:</strong> cálculos hiperecogênicos com <strong>sombra acústica posterior</strong>, vesícula de paredes finas (&lt;3 mm), cálculos <strong>móveis</strong> às mudanças de decúbito (não impactados), via biliar não dilatada.</p>
+<p><strong>Por que cálculos de colesterol não aparecem na TC?</strong> Sua densidade radiológica é similar à gordura → isodensidade em relação à bile. A TC identifica &lt;20% dos cálculos biliares. A USG usa reflexão ultrassônica de alta resolução de interface.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Laboratório na cólica biliar simples</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>Hemograma, bilirrubinas, FA/GGT, ALT/AST, amilase/lipase: <strong>todos normais</strong>. Qualquer alteração sugere complicação (colestase, colecistite, pancreatite).</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Tratamento</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Colecistectomia videolaparoscópica eletiva</strong> para colelitíase sintomática. Assintomáticos: expectante, exceto nos casos de alto risco (cálculos &gt;3 cm, vesícula em porcelana, pólipos, anemias hemolíticas).</p>
+</div></div>
+</div>
+
+<div class="cl cl-d"><div class="clbl">🚨 Red flags — sinais que mudam a síndrome</div>
+<p><strong>Dor &gt; 6 horas</strong> → colecistite aguda / <strong>Febre com calafrios</strong> → colangite / <strong>Icterícia progressiva</strong> → colestase / <strong>Dor em barra irradiando para dorso</strong> → pancreatite biliar</p></div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- 02 · COLESTASE -->
+<!-- ===================================================== -->
+<section id="s-cole2" class="s-cole2">
+<div class="sh"><span class="snum">02</span><h2 class="stitle">Colestase — <em>quando a bile não flui</em></h2></div>
+
+<p>Definida como <strong>comprometimento do fluxo biliar</strong>, da síntese hepática à excreção duodenal. Resulta no acúmulo sistêmico de substâncias normalmente excretadas pela bile: bilirrubina conjugada, sais biliares, colesterol, FA e GGT.</p>
+
+<div class="cl cl-f"><div class="clbl">⬡ Princípio fisiopatológico</div><p>A bile produzida no fígado não alcança o duodeno → acúmulo intravascular de bilirrubina conjugada (hidrossolúvel) + sais biliares + colesterol. Cada componente acumulado gera um achado clínico específico — e é isso que o Prof. Esteves quer que se compreenda mecanisticamente.</p></div>
+
+<div class="card"><div class="ctitle">Fisiopatologia — cascata mecanismo→sintoma</div>
+<table class="tbl"><thead><tr><th>Mecanismo</th><th>Substância acumulada</th><th>Achado clínico</th></tr></thead><tbody>
+<tr><td>↑ Bilirrubina conjugada + oxidação a biliverdina</td><td>BD + biliverdina</td><td><strong>Icterícia verdínica</strong> (amarelo-esverdeada) — característica da colestase</td></tr>
+<tr><td>BD é hidrossolúvel → excreção renal</td><td>BD urinária</td><td><strong>Colúria</strong> (urina cor de coca-cola, chá forte)</td></tr>
+<tr><td>Ausência de bilirrubina/estercobilinogênio no intestino</td><td>Falta de pigmento fecal</td><td><strong>Hipocolia/Acolia fecal</strong> (fezes claras, massa de vidraceiro)</td></tr>
+<tr><td>Acúmulo cutâneo de sais biliares + mediadores pruritogênicos (lisofosfolipídios, endocanabinoides)</td><td>Sais biliares na pele</td><td><strong>Prurido</strong> (generalizado, predomínio noturno) + escoriações</td></tr>
+<tr><td>Acúmulo de colesterol por bloqueio da excreção biliar</td><td>Colesterol sérico e tecidual</td><td><strong>Xantelasmas</strong> (pálpebras) e <strong>xantomas</strong> (superfícies extensoras) — colestase crônica</td></tr>
+<tr><td>Má-absorção lipídica por ausência de bile no lúmen</td><td>Gordura nas fezes</td><td><strong>Esteatorreia</strong> (fezes volumosas, fétidas, oleosas)</td></tr>
+<tr><td>Esteatorreia prolongada → deficit vitaminas lipossolúveis</td><td>↓ ADEK</td><td><strong>Deficiências de Vit. A, D, E, K</strong> (coagulopatia, osteopenia, neuropatia)</td></tr>
+</tbody></table>
+</div>
+
+<div class="card"><div class="ctitle">Classificação topográfica</div>
+<div class="g2">
+<div>
+<p><strong>Colestase Intra-hepática</strong></p>
+<ul>
+<li>Obstrução nos canalículos ou ductos intra-hepáticos</li>
+<li>Colédoco e ducto hepático comum <em>pérvios</em></li>
+<li>Causas: hepatites virais colestáticas, drogas (clorpromazina, amoxicilina-clavulanato, esteroides), cirrose biliar primária (CBP), colestase intra-hepática da gravidez</li>
+<li>Início progressivo; dor ausente ou leve</li>
+<li>Vesícula <strong>não</strong> palpável</li>
+<li>Sinais de hepatopatia crônica frequentes</li>
+</ul>
+</div>
+<div>
+<p><strong>Colestase Extra-hepática</strong></p>
+<ul>
+<li>Obstrução mecânica dos ductos extra-hepáticos (colédoco, ampola de Vater)</li>
+<li>Causas: coledocolitíase (litiásica), tumores periampulares (CA cabeça de pâncreas, colangiocarcinoma, ampuloma)</li>
+<li>Início súbito (litiásica) ou progressivo (neoplásica)</li>
+<li>Dor presente se litiásica; ausente se neoplásica</li>
+<li>Vesícula <strong>palpável</strong> se causa neoplásica → Sinal de Courvoisier-Terrier</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Sinal de Courvoisier-Terrier — a peça-chave da colestase</div>
+<p><strong>Definição:</strong> Vesícula biliar palpável, distendida e <em>indolor</em> em paciente ictérico.</p>
+<p><strong>Lógica de Courvoisier:</strong> Vesícula com colelitíase crônica → parede <em>fibrosada</em> → não distende quando obstruída. Vesícula previamente normal + obstrução <em>lenta e progressiva</em> por neoplasia → distende progressivamente sem dor.</p>
+<p><strong>Significado:</strong> Obstrução biliar extra-hepática de causa <strong>não litiásica</strong> → neoplasia periampular (CA cabeça de pâncreas, ampuloma, colangiocarcinoma distal).</p>
+<div class="cl cl-a" style="margin-top:.8rem;margin-bottom:0"><div class="clbl">⚠ Limitações</div><p>Não é absoluto: Síndrome de Mirizzi com vesícula não fibrosada, pancreatite com pseudocisto compressivo e ascaridíase podem mimetizar. O valor preditivo para neoplasia periampular permanece alto.</p></div>
+</div>
+
+<div class="card"><div class="ctitle">Semiologia da icterícia — reconhecimento e classificação</div>
+<p><strong>Limiar de detecção clínica:</strong> Bilirrubina Total &gt;2,5–3,0 mg/dL. <strong>Sequência de aparecimento:</strong> Escleróticas → Mucosa sublingual → Frênulo → Pele.</p>
+<table class="tbl"><thead><tr><th>Tonalidade</th><th>Nome</th><th>Tipo de icterícia</th><th>Mecanismo</th></tr></thead><tbody>
+<tr><td><strong>Amarelo-pálido</strong></td><td>Flavínica</td><td>Hemolítica</td><td>↑ BI (não conjugada) → tecidos menos impregnados</td></tr>
+<tr><td><strong>Amarelo-alaranjado</strong></td><td>Rubínica</td><td>Hepatocelular</td><td>Misto BI + BD por disfunção hepatocitária</td></tr>
+<tr><td><strong>Amarelo-esverdeado</strong></td><td>Verdínica</td><td>Colestática</td><td>↑ BD + oxidação a biliverdina — foco nas síndromes biliares</td></tr>
+<tr><td><strong>Amarelo-pardacento</strong></td><td>Melânica</td><td>Colestase prolongada</td><td>Hiperpigmentação por melanina + bilirrubina cronicamente acumulada</td></tr>
+</tbody></table>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Armadilhas no reconhecimento da icterícia</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Carotenodermia:</strong> excesso de caroteno (mamão, cenoura) gera tonalidade amarelada <em>que não acomete as escleróticas</em> — diferença vital.</p>
+<p><strong>Pele negra:</strong> avaliação cutânea pode ser enganosa — priorizar escleróticas, frênulo lingual e palato duro.</p>
+<p><strong>Luz artificial:</strong> fluorescente fria mascara ictérias leves. Sempre examinar sob luz natural.</p>
+<p><strong>Uremia:</strong> tonalidade amarelo-pardacenta sem icterícia escleral verdadeira — confundidor.</p>
+</div></div>
+</div>
+
+<div class="card"><div class="ctitle">Diagnóstico e exames</div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Laboratório — padrão colestático</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>↑↑ Bilirrubina Direta (BD)</strong> — marcador primário de colestase.</p>
+<p><strong>↑↑ FA (fosfatase alcalina)</strong> e <strong>↑↑ GGT (gamaglutamiltransferase)</strong> — enzimas canaliculares, elevam-se por indução enzimática e refluxo biliar. FA elevada com GGT normal → pensar em fonte óssea de FA.</p>
+<p><strong>ALT/AST:</strong> leve elevação na colestase mecânica; elevação intensa sugere hepatite associada.</p>
+<p><strong>TP/INR:</strong> Vit. K lipossolúvel → deficiência em colestase prolongada → coagulopatia.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Imagem — abordagem hierárquica</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>1° USG abdominal:</strong> identifica dilatação de vias biliares (colédoco &gt;0,6–0,8 cm), cálculos em vesícula, massa pancreática. Não visualiza bem o colédoco distal.</p>
+<p><strong>2° Colangiorressonância (CPRM):</strong> exame não invasivo de escolha para avaliar a árvore biliar completa. Detecta cálculos no colédoco (falha de enchimento), estenoses, tumores. Limitação: cálculos &lt;3 mm.</p>
+<p><strong>3° TC de abdome:</strong> melhor para tumores e extensão neoplásica.</p>
+<p><strong>4° CPRE:</strong> procedimento invasivo terapêutico — papilotomia e extração de cálculo na coledocolitíase.</p>
+</div></div>
+</div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- 03 · COLECISTITE AGUDA -->
+<!-- ===================================================== -->
+<section id="s-cole3" class="s-cole3">
+<div class="sh"><span class="snum">03</span><h2 class="stitle">Colecistite Aguda — <em>quando a vesícula inflama</em></h2></div>
+
+<p>Inflamação aguda da vesícula biliar, geralmente decorrente de <strong>obstrução persistente do ducto cístico</strong> por cálculo impactado (calculosa — 90–95%). Em 5–10%: alitiásica (pacientes graves, isquêmica/infecciosa).</p>
+
+<div class="cl cl-f"><div class="clbl">⬡ Ideia central — Prof. Esteves</div><p>"O cálculo obstrui, a bile estagna, a parede inflama." A diferença entre cólica biliar e colecistite é a <strong>reversibilidade da obstrução</strong>: na cólica, o cálculo volta → dor cessa em &lt;6h. Na colecistite, impactação persistente → cascata inflamatória.</p></div>
+
+<div class="card"><div class="ctitle">Fisiopatologia — cascata da colecistite</div>
+<div class="casc">
+<div class="ci"><div class="cst">ETAPA 1</div><div class="cn">Obstrução persistente do ducto cístico</div><div class="cd">Cálculo impacta definitivamente no infundíbulo/bolsa de Hartmann. Saída da bile bloqueada → acúmulo progressivo.</div></div>
+<div class="ci"><div class="cst">ETAPA 2</div><div class="cn">Distensão e estase biliar</div><div class="cd">Pressão intraluminal aumenta progressivamente. A bile estagnada concentra-se → sais biliares em alta concentração → citotóxicos para a mucosa. Prostaglandinas (especialmente PGI2 e PGE2) amplificam a resposta inflamatória local.</div></div>
+<div class="ci"><div class="cst">ETAPA 3</div><div class="cn">Inflamação e isquemia da parede</div><div class="cd">Edema transmural, hiperemia, sofrimento da parede vesicular. A pressão intraluminal supera a pressão de perfusão venosa → isquemia mural progressiva. Inflamação por contiguidade com o peritônio parietal → irritação peritoneal localizada em HCD → Murphy positivo.</div></div>
+<div class="ci"><div class="cst">ETAPA 4</div><div class="cn">Infecção secundária e complicações</div><div class="cd">Translocação bacteriana (E. coli, Klebsiella, Enterococcus, anaeróbios) → empiema (pus na vesícula), colecistite gangrenosa (necrose mural), colecistite enfisematosa (germes produtores de gás), perfuração → peritonite biliar.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Quadro clínico</div>
+<div class="g2">
+<div>
+<p><strong>Dor:</strong> HCD contínua, persistente <strong>&gt;6 horas</strong>, progressiva. Irradia para escápula/ombro direito.</p>
+<p><strong>Sistêmico:</strong> febre moderada (38–38,5°C), anorexia, náuseas, vômitos.</p>
+<p><strong>Icterícia:</strong> NÃO é típica. Quando presente → coledocolitíase associada ou <strong>Síndrome de Mirizzi</strong>.</p>
+</div>
+<div>
+<table class="tbl"><thead><tr><th></th><th>Cólica Biliar</th><th>Colecistite</th></tr></thead><tbody>
+<tr><td class="tdl">Duração</td><td>&lt; 6 h</td><td>&gt; 6 h</td></tr>
+<tr><td class="tdl">Febre</td><td>Ausente</td><td>Presente</td></tr>
+<tr><td class="tdl">Murphy</td><td>Negativo</td><td>Positivo</td></tr>
+<tr><td class="tdl">Leucocitose</td><td>Ausente</td><td>Presente</td></tr>
+<tr><td class="tdl">Postura</td><td>Inquieto</td><td>Imóvel</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Sinal de Murphy — técnica e mecanismo</div>
+<div class="cl cl-a" style="margin-bottom:.9rem"><div class="clbl">⚠ Distinção conceitual fundamental</div><p>O Sinal de Murphy NÃO é sinal de peritonite em HCD. É especificamente a <strong>pausa inspiratória álgica à palpação subcostal direita</strong> — mecanismo distinto e preciso.</p></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Mecanismo fisiopatológico do Murphy</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>Durante a <strong>inspiração profunda</strong>, o diafragma desce e empurra o fígado + vesícula <strong>cranialmente</strong> em direção à mão do examinador fixada no ponto cístico (linha hemiclavicular D, abaixo do rebordo costal). A vesícula inflamada, ao encontrar a pressão manual, gera dor intensa → <strong>parada abrupta da inspiração</strong> ("inspiratory arrest").</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Técnica de execução</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>1. Paciente em decúbito dorsal, joelhos semifletidos, abdome relaxado.</p>
+<p>2. Examinador à direita do paciente, mãos aquecidas.</p>
+<p>3. Posicionar polegar ou polpa de 2–3 dedos abaixo do rebordo costal D, na LHC (projeção do fundo vesicular).</p>
+<p>4. Solicitar inspiração profunda e lenta.</p>
+<p>5. Observar reação facial e ritmo respiratório — parada abrupta = Murphy positivo.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Interpretação e armadilhas</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Especificidade limitada:</strong> pode ser positivo em hepatite aguda, coledocolitíase, abscesso hepático.</p>
+<p><strong>Murphy em idosos/diabéticos/imunossuprimidos:</strong> frequentemente <strong>negativo</strong> mesmo em colecistite franca — pela redução do limiar álgico (neuropatia autonômica). Murphy negativo NÃO exclui colecistite nesses pacientes. Manter alta suspeição clínica.</p>
+<p><strong>Erros técnicos comuns:</strong> não solicitar inspiração profunda; pressão excessiva (falso positivo); não comparar com HCE (controle).</p>
+</div></div>
+</div>
+
+<div class="card"><div class="ctitle">Síndrome de Mirizzi — quando o cálculo comprime de fora</div>
+<p><strong>Definição:</strong> compressão extrínseca do ducto hepático comum por cálculo impactado no infundíbulo vesicular ou no ducto cístico, com ou sem fístula colecistobiliar.</p>
+<p><strong>Consequência clínica:</strong> colecistite (Murphy positivo, dor em HCD) + icterícia obstrutiva (BD elevada) — quadro misto que simula coledocolitíase, mas o colédoco está pérvio, a obstrução é extrínseca.</p>
+<div class="cl cl-p"><div class="clbl">✦ Armadilha de prova</div><p>Icterícia em paciente com colecistite NÃO é obrigatoriamente coledocolitíase. Pode ser Mirizzi — compressão extrínseca do hepatocolédoco pelo cálculo impactado no infundíbulo. A distinção é feita pela ausência de cálculo intraluminal no colédoco.</p></div>
+</div>
+
+<div class="card"><div class="ctitle">Diagnóstico e exames</div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">USG abdominal — exame de eleição</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>Vesícula com paredes espessadas (&gt;4 mm), líquido pericolecístico, <strong>cálculo impactado no infundíbulo</strong> (não móvel às mudanças de decúbito), Murphy ultrassonográfico. Sinal de Murphy à USG tem alta sensibilidade.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Colecintilografia com DISIDA — padrão-ouro</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>Radiofármaco de excreção biliar administrado IV → percorre o ciclo entero-hepático → normalmente aparece na vesícula. Na colecistite aguda, o ducto cístico está obstruído → marcador não entra na vesícula → <strong>vesícula ausente = colecistite</strong>. Vesícula presente = afasta colecistite. Uso clínico limitado (USG + clínica geralmente suficientes) — mais cobrado em prova.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Laboratório e tratamento</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Laboratório:</strong> leucocitose com desvio, PCR elevado. Bilirrubinas normais (se simples); BD elevada sugere Mirizzi ou coledocolitíase. FA/GGT levemente elevadas.</p>
+<p><strong>Tratamento:</strong> colecistectomia videolaparoscópica de urgência (até 72 horas). Antibioticoterapia (ceftriaxona + metronidazol ou ciprofloxacino + metronidazol). Paciente crítico que não tolera cirurgia → colecistostomia percutânea (drenagem-ponte).</p>
+<p><strong>Colecistite alitiásica:</strong> pacientes críticos, isquemia esplâncnica, jejum prolongado. DISIDA mais útil nesses casos (dificuldade de exame físico em UTI).</p>
+</div></div>
+</div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- 04 · PANCREATITE AGUDA -->
+<!-- ===================================================== -->
+<section id="s-pnc" class="s-pnc">
+<div class="sh"><span class="snum">04</span><h2 class="stitle">Pancreatite Aguda — <em>autodigestão do parênquima</em></h2></div>
+
+<p>Processo inflamatório agudo do pâncreas, com <strong>graus variáveis de envolvimento de tecidos peripancreáticos e órgãos a distância</strong>. A causa mais comum é litiásica (~40–50%), seguida de alcoólica (~25–35%).</p>
+
+<div class="cl cl-f"><div class="clbl">⬡ Mecanismo central</div><p>Ativação intraductal/intracelular <em>prematura</em> do tripsinogênio em tripsina ativa → ativação em cascata de outros zimogênios (quimotripsinogênio, fosfolipase A2, elastase) → <strong>autodigestão do parênquima pancreático</strong>. Na forma grave: liberação sistêmica de mediadores inflamatórios → SIRS/sepse/disfunção orgânica múltipla.</p></div>
+
+<div class="card"><div class="ctitle">Fisiopatologia — do cálculo à autodigestão</div>
+<div class="casc">
+<div class="ci"><div class="cst">GATILHO BILIAR</div><div class="cn">Cálculo migra do colédoco e impacta na Ampola de Vater</div><div class="cd">O cálculo obstrui a via comum biliopancreática (ampola de Vater, controlada pelo esfíncter de Oddi). Isso gera: (a) represamento biliar → colestase e (b) represamento pancreático → hipertensão intraductal.</div></div>
+<div class="ci"><div class="cst">EVENTO CRÍTICO</div><div class="cn">Ativação prematura intraductal de zimogênios</div><div class="cd">A hipertensão intraductal + refluxo biliar para o ducto pancreático → ativação intraductal prematura do tripsinogênio em tripsina. A tripsina ativa em cascata: quimotripsinogênio, fosfolipase A2 (lesa membranas celulares), elastase (lesa vasos).</div></div>
+<div class="ci"><div class="cst">DANO LOCAL</div><div class="cn">Autodigestão → edema, necrose, hemorragia</div><div class="cd">Edema intersticial (pancreatite leve), progressão para necrose peripancreática e pancreática (necrosante, grave). Hemorragia retroperitoneal → Sinais de Cullen e Grey-Turner (tardios — 48–72h).</div></div>
+<div class="ci"><div class="cst">RESPOSTA SISTÊMICA</div><div class="cn">Liberação de mediadores → SIRS → disfunção orgânica</div><div class="cd">IL-1, IL-6, TNF-α liberados → SIRS. Impacto cardiovascular (hipotensão), respiratório (SDRA, derrame pleural reativo), renal (oligúria), neurológico (confusão). Pancreatite grave = doença sistêmica que começa no pâncreas.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Causas — as duas grandes + mnemônica I GET SMASHED</div>
+<div class="g2">
+<div>
+<p><strong>Pancreatite biliar (~40–50%):</strong> cálculo impacta na ampola de Vater → obstrução biliar + pancreática. Mais comum em mulheres, perfil da colelitíase. Onset súbito (impactação aguda do cálculo).</p>
+<p><strong>Pancreatite alcoólica (~25–35%):</strong> mecanismo multifatorial — toxicidade direta sobre células acinares, sensibilização, espessamento das secreções com obstrução ductal. Surge após anos de consumo crônico, não após episódio isolado. Mais comum em homens.</p>
+</div>
+<div>
+<p><strong>I GET SMASHED:</strong></p>
+<ul>
+<li><strong>I</strong>diopática · <strong>G</strong>allstones (biliar) · <strong>E</strong>thanol (álcool)</li>
+<li><strong>T</strong>rauma · <strong>S</strong>teroids (corticosteroides) · <strong>M</strong>umps/vírus</li>
+<li><strong>A</strong>utoimmune · <strong>S</strong>corpion sting (raro no BR) · <strong>H</strong>ipertrigliceridemia/Hipercalcemia</li>
+<li><strong>E</strong>RCP (pós-CPRE) · <strong>D</strong>rugs (azatioprina, valproato, didanosina)</li>
+</ul>
+<div class="cl cl-a" style="margin-top:.6rem;margin-bottom:0"><div class="clbl">⚠ Crítica didática</div><p>O I GET SMASHED é lista exaustiva útil — mas biliar e alcoólica ainda respondem por ~70–80% dos casos. Não inverter as probabilidades clínicas.</p></div>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Quadro clínico e semiologia</div>
+<p><strong>Dor:</strong> epigástrica, frequentemente <strong>em barra</strong> (faixa abdominal alta cruzando hipocôndrios). <strong>Irradiação dorsal em faixa</strong> (T12–L1) — pela topografia retroperitoneal do pâncreas. Contínua, intensa, profunda. Início geralmente súbito (biliar) ou progressivo (alcoólica). <strong>Não é autolimitada</strong> — dura horas a dias.</p>
+<p><strong>Fatores que pioram:</strong> decúbito dorsal, alimentação. <strong>Fatores que aliviam:</strong> posição antálgica.</p>
+<p><strong>Sintomas associados:</strong> vômitos intensos e persistentes que <strong>não aliviam</strong> a dor (diferente da cólica renal e biliar), distensão abdominal, anorexia, sudorese.</p>
+<p><strong>Febre:</strong> baixa ou ausente nas primeiras 24–48h. Febre alta sugere complicação infecciosa (necrose infectada, abscesso).</p>
+
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Posição antálgica — "prece maometana"</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>Paciente sentado, inclinado para frente, tronco fletido sobre os joelhos, abraçando o tronco ("cão de espingarda" em decúbito lateral). <strong>Mecanismo:</strong> redução da tração mesentérica sobre o pâncreas retroperitoneal e diminuição da pressão sobre o leito pancreático inflamado. O decúbito dorsal piora a dor — observação útil à beira do leito.</p>
+</div></div>
+
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Sinais cutâneos — Cullen e Grey-Turner</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Sinal de Cullen:</strong> equimose periumbilical azul-arroxeada. <strong>Sinal de Grey-Turner:</strong> equimose nos flancos. <strong>Mecanismo:</strong> dissecção de hemorragia retroperitoneal pelos planos fasciais → impregnação subcutânea de pigmentos hemorrágicos. <strong>Tempo:</strong> 48–72h após o início (NÃO são sinais iniciais). <strong>Significado:</strong> pancreatite hemorrágica/necrosante grave — red flag de mau prognóstico. Frequência baixa (~3% dos casos), mas alta especificidade.</p>
+</div></div>
+
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Ponto de Mayo-Robson e achados ao exame</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Ponto de Mayo-Robson:</strong> ângulo costovertebral esquerdo — projeção topográfica da cauda do pâncreas. Dor à palpação sugere envolvimento da cauda. <strong>Ponto de Desjardins:</strong> projeção da cabeça pancreática, no terço médio da linha umbilical-axila direita.</p>
+<p><strong>Outros achados:</strong> defesa epigástrica ou difusa (peritonite química), íleo paralítico (distensão + silêncio abdominal), massa epigástrica tardia (pseudocisto pancreático — 4–6 semanas).</p>
+</div></div>
+</div>
+
+<div class="card"><div class="ctitle">Diagnóstico</div>
+<p><strong>Diagnóstico de pancreatite aguda:</strong> 2 de 3 critérios: (1) dor abdominal típica; (2) amilase e/ou lipase &gt;3× LSN; (3) TC/RNM com achados de pancreatite.</p>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Laboratório</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>Lipase:</strong> mais específica que amilase para o pâncreas. Eleva-se em 4–8h, pico em 24h, normaliza em 8–14 dias. Preferência atual sobre amilase.</p>
+<p><strong>Amilase:</strong> eleva-se em 6–12h, pico em 24h, normaliza em 3–5 dias. Menos específica (produzida por glândulas salivares, intestino, ovário).</p>
+<p><strong>BD, FA, GGT elevadas</strong> → etiologia biliar (cálculo na ampola) — orienta para CPRE precoce se colangite associada.</p>
+<p><strong>PCR &gt;150 mg/dL</strong> em 48h → marcador de necrose pancreática (indicador de gravidade).</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Imagem e estratificação de gravidade</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>TC com contraste (fase portal):</strong> padrão-ouro para avaliar necrose (ausência de realce do parênquima). <strong>Índice de gravidade pela TC (Balthazar/CTSI):</strong> avalia extensão da necrose e coleções.</p>
+<p><strong>Classificação de Atlanta (2012) — revisada:</strong> Leve (intersticial edematosa, sem necrose, sem disfunção orgânica); Moderada (complicações locais ou disfunção orgânica transitória &lt;48h); Grave (disfunção orgânica persistente &gt;48h — critério-chave).</p>
+<p><strong>Pancreatite leve:</strong> ~80% dos casos; edema pancreático, sem necrose, resolução em dias, mortalidade baixa.</p>
+<p><strong>Pancreatite grave:</strong> ~20%; necrose, SIRS persistente, disfunção orgânica múltipla; mortalidade 15–30%.</p>
+</div></div>
+</div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- 05 · COLANGITE AGUDA -->
+<!-- ===================================================== -->
+<section id="s-col" class="s-col">
+<div class="sh"><span class="snum">05</span><h2 class="stitle">Colangite Aguda — <em>sepse de origem biliar</em></h2></div>
+
+<p>Infecção bacteriana das vias biliares, quase sempre em contexto de obstrução prévia. A coledocolitíase é a causa mais comum; também: estenoses, neoplasias, parasitoses, pós-CPRE. <strong>Princípio fundamental:</strong> colangite é, antes de tudo, uma sepse de origem biliar.</p>
+
+<div class="cl cl-f"><div class="clbl">⬡ Mecanismo central</div><p>Obstrução biliar → estase → bacteriobilia (translocação a partir do duodeno) → ↑ pressão intraductal → translocação bacteriana para o sangue → bacteremia/sepse. A chave é a <strong>pressão intraductal elevada</strong> — é ela que força as bactérias para a circulação sistêmica.</p></div>
+
+<div class="card"><div class="ctitle">Fisiopatologia — da obstrução à sepse</div>
+<div class="casc">
+<div class="ci"><div class="cst">ETAPA 1</div><div class="cn">Obstrução biliar (geralmente por coledocolitíase)</div><div class="cd">Cálculo impactado no colédoco → bloqueio do fluxo biliar extra-hepático.</div></div>
+<div class="ci"><div class="cst">ETAPA 2</div><div class="cn">Estase biliar e colonização bacteriana</div><div class="cd">Bile estagnada é colonizada por bactérias ascendentes a partir do duodeno — bacteriobilia. Principais agentes: <em>E. coli</em> (mais comum), <em>Klebsiella</em>, <em>Enterococcus</em>, anaeróbios (<em>Bacteroides</em>, <em>Clostridium</em>). A bile normalmente tem ação bacteriostática — perdida na obstrução.</div></div>
+<div class="ci"><div class="cst">ETAPA 3</div><div class="cn">Aumento da pressão intraductal</div><div class="cd">A produção hepatocitária de bile continua → pressão intraductal aumenta progressivamente → a barreira hepatocitária é rompida → bactérias e endotoxinas passam para os sinusoides e a circulação sistêmica.</div></div>
+<div class="ci"><div class="cst">ETAPA 4</div><div class="cn">Bacteremia e sepse</div><div class="cd">Bactérias na circulação → resposta inflamatória sistêmica → calafrios (ativação do complemento + citocinas) → febre → sepse → choque séptico. Na colangite grave, a pressão biliar pode ser &gt;20–25 cmH₂O.</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Tríade de Charcot e Pêntade de Reynolds</div>
+<div class="g2">
+<div>
+<p><strong>Tríade de Charcot (1877) — colangite moderada:</strong></p>
+<ol style="color:var(--tx2);padding-left:1.2rem">
+<li>Dor em hipocôndrio direito</li>
+<li><strong>Febre com calafrios</strong> — bacteremia</li>
+<li><strong>Icterícia</strong> — colestase obstrutiva</li>
+</ol>
+<p style="font-size:.84rem;color:var(--tx3);margin-top:.6rem"><strong>Sensibilidade:</strong> moderada — a tríade completa NÃO está presente em todos os casos (especialmente em idosos e imunossuprimidos). <strong>Especificidade:</strong> alta — quando presente, é fortemente sugestiva.</p>
+</div>
+<div>
+<p><strong>Pêntade de Reynolds (1959) — colangite grave (tóxica supurativa):</strong></p>
+<ol style="color:var(--tx2);padding-left:1.2rem">
+<li>Dor em HCD</li>
+<li>Febre com calafrios</li>
+<li>Icterícia</li>
+<li><strong>Hipotensão</strong> — choque séptico</li>
+<li><strong>Alteração do estado mental</strong> — encefalopatia séptica</li>
+</ol>
+<div class="cl cl-d" style="margin-top:.6rem;margin-bottom:0"><div class="clbl">🚨 Emergência tempo-dependente</div><p>Pêntade de Reynolds = colangite tóxica supurativa = choque séptico de origem biliar. Mortalidade elevada sem descompressão biliar urgente.</p></div>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ctitle">Semiologia e exame físico</div>
+<table class="tbl"><thead><tr><th>Achado</th><th>Mecanismo</th><th>Significado</th></tr></thead><tbody>
+<tr><td class="tdl">Calafrios com tremor</td><td>Liberação súbita de bactérias/endotoxinas → ativação pirogênica intensa</td><td>Bacteremia — diferencia colangite de colecistite (calafrios intensos são típicos de colangite)</td></tr>
+<tr><td class="tdl">Icterícia verdínica</td><td>Colestase obstrutiva por obstrução do colédoco</td><td>BD elevada, colúria, hipocolia</td></tr>
+<tr><td class="tdl">Dor em HCD</td><td>Distensão do colédoco e inflamação periductal</td><td>Mais difusa e em peso (diferente do Murphy pontual da colecistite)</td></tr>
+<tr><td class="tdl">Hipotensão</td><td>Sepse → vasodilatação periférica + hipovolemia</td><td>Sinal de gravidade — Pêntade de Reynolds</td></tr>
+<tr><td class="tdl">Alteração mental</td><td>Encefalopatia séptica — hipoperfusão cerebral + citocinas</td><td>Sinal de gravidade extrema — necessidade de descompressão urgente</td></tr>
+<tr><td class="tdl">Postura prostrada</td><td>Choque séptico — sem energia para postura ativa</td><td>Diferente da colecistite (imóvel) e da cólica (agitado)</td></tr>
+</tbody></table>
+</div>
+
+<div class="card"><div class="ctitle">Estratificação de gravidade — Tokyo Guidelines 2018 (TG18)</div>
+<table class="tbl"><thead><tr><th>Grau</th><th>Definição</th><th>Conduta</th></tr></thead><tbody>
+<tr><td class="tdl">Grau I (Leve)</td><td>Colangite que responde ao tratamento clínico inicial (antibióticos + suporte). Sem disfunção orgânica.</td><td>Antibioticoterapia; drenagem biliar eletiva (CPRE)</td></tr>
+<tr><td class="tdl">Grau II (Moderada)</td><td>Não responde ao tratamento clínico inicial ou apresenta marcadores específicos de gravidade (leucocitose &gt;12.000 ou &lt;4.000; febre &gt;39°C; bilirrubina &gt;5 mg/dL).</td><td>Drenagem biliar precoce (CPRE em 48–72h)</td></tr>
+<tr><td class="tdl">Grau III (Grave)</td><td>Disfunção orgânica em pelo menos 1 sistema (cardiovascular, neurológico, respiratório, renal, hepático, hematológico) — equivalente clínico à Pêntade de Reynolds.</td><td>Descompressão biliar urgente (CPRE ou drenagem percutânea), UTI, ressuscitação volêmica, antibioticoterapia ampla</td></tr>
+</tbody></table>
+</div>
+
+<div class="card"><div class="ctitle">Diagnóstico e exames</div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Laboratório</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p>↑↑ Bilirrubina direta + FA + GGT (padrão colestático). Leucocitose com desvio. PCR elevada. Hemocultura positiva em 25–40% (E. coli mais comum). ALT/AST podem elevar-se. TGO/TGP muito elevadas podem indicar lesão hepatocelular por pressão intraductal.</p>
+</div></div>
+<div class="acc"><div class="acc-h" onclick="toggleAcc(this)"><span class="acc-t">Imagem e tratamento</span><span class="acc-i">▼</span></div><div class="acc-b">
+<p><strong>USG:</strong> dilatação de vias biliares + cálculos em vesícula/colédoco. Pode não visualizar o cálculo no colédoco distal.</p>
+<p><strong>TC de abdome:</strong> identifica dilatação, coleções, abscessos hepáticos, pneumobilia.</p>
+<p><strong>CPRE:</strong> procedimento de escolha — diagnóstico E terapêutico simultaneamente (extração do cálculo, papilotomia). A descompressão biliar é o tratamento definitivo.</p>
+<p><strong>Antibioticoterapia empírica:</strong> piperacilina-tazobactam, carbapenêmicos (casos graves), ou ceftriaxona + metronidazol. Cobertura para gram-negativos e anaeróbios.</p>
+</div></div>
+</div>
+
+<div class="cl cl-d"><div class="clbl">🚨 Checklist de alarme sistêmico — sinais vitais na colangite</div>
+<p><strong>Taquicardia &gt;90 bpm</strong> → sepse / <strong>Taquipneia &gt;22 irpm</strong> → SIRS, derrame pleural reativo / <strong>Febre &gt;37,8°C</strong> → infecção ativa / <strong>Hipotensão PAS&lt;90 mmHg</strong> → choque séptico / <strong>SpO2 &lt;92%</strong> → comprometimento respiratório / <strong>Alteração mental</strong> → encefalopatia séptica = Pêntade de Reynolds</p></div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- QUADRO COMPARATIVO -->
+<!-- ===================================================== -->
+<section id="comparativo">
+<div class="sh"><span class="snum" style="color:var(--pk2);background:rgba(217,122,170,.1);border-color:rgba(217,122,170,.2)">06</span><h2 class="stitle">Quadro <em>Comparativo</em> — as 5 síndromes lado a lado</h2></div>
+
+<p>Integração das cinco síndromes hepatobiliares em um único mapa de raciocínio clínico. Nenhuma é uma ilha — todas compartilham o mesmo eixo fisiopatológico.</p>
+
+<div style="overflow-x:auto">
+<table class="comp-table">
+<thead>
+<tr>
+  <th>Parâmetro</th>
+  <th style="color:#e8b06a">Colelitíase / Cólica Biliar</th>
+  <th style="color:#d97aaa">Colestase Extra-hepática</th>
+  <th style="color:#e87a7a">Colecistite Aguda</th>
+  <th style="color:#7ab8e8">Pancreatite Aguda</th>
+  <th style="color:#7ae8b8">Colangite Aguda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>O que é</td>
+  <td>Cálculos na vesícula biliar — obstrução transitória do ducto cístico</td>
+  <td>Bloqueio do fluxo biliar no colédoco/via extra-hepática → acúmulo sistêmico de bile</td>
+  <td>Inflamação aguda da vesícula por obstrução persistente do ducto cístico</td>
+  <td>Inflamação aguda do pâncreas por ativação prematura de zimogênios</td>
+  <td>Infecção bacteriana das vias biliares em contexto de obstrução biliar</td>
+</tr>
+<tr>
+  <td>Sede da obstrução</td>
+  <td>Ducto cístico (transitória)</td>
+  <td>Colédoco / via biliar extra-hepática</td>
+  <td>Ducto cístico (persistente)</td>
+  <td>Ampola de Vater (biliopancreática)</td>
+  <td>Colédoco (com infecção ascendente)</td>
+</tr>
+<tr>
+  <td>Dor — localização</td>
+  <td>HCD ou epigástrio</td>
+  <td>Variável ou ausente (neoplásica); HCD (litiásica)</td>
+  <td>HCD contínua, progressiva</td>
+  <td>Epigástrio em barra, irradia para dorso</td>
+  <td>HCD, peso/sorda, contínua</td>
+</tr>
+<tr>
+  <td>Dor — irradiação</td>
+  <td>Escápula D / ombro D</td>
+  <td>Variável</td>
+  <td>Escápula D / ombro D</td>
+  <td>Dorso em faixa (T12–L1)</td>
+  <td>Inespecífica</td>
+</tr>
+<tr>
+  <td>Duração da dor</td>
+  <td>&lt; 6 horas (autolimitada)</td>
+  <td>Persistente se causa mantida</td>
+  <td>&gt; 6 horas (persistente)</td>
+  <td>Horas a dias (não autolimitada)</td>
+  <td>Persistente até descompressão</td>
+</tr>
+<tr>
+  <td>Febre</td>
+  <td class="ng">Ausente</td>
+  <td class="ng">Ausente (sem infecção)</td>
+  <td class="ok">Presente (38–38,5°C)</td>
+  <td class="maybe">Baixa/ausente no início; alta = complicação</td>
+  <td class="ok">Presente, com calafrios intensos</td>
+</tr>
+<tr>
+  <td>Icterícia</td>
+  <td class="ng">Ausente</td>
+  <td class="ok">Presente — verdínica</td>
+  <td class="maybe">Incomum; se presente → Mirizzi/coledocolitíase</td>
+  <td class="maybe">Ausente ou discreta (se biliar)</td>
+  <td class="ok">Presente — característica central</td>
+</tr>
+<tr>
+  <td>Colúria / Hipocolia</td>
+  <td class="ng">Ausentes</td>
+  <td class="ok">Presentes — marcadores de colestase</td>
+  <td class="ng">Ausentes (se simples)</td>
+  <td class="ng">Ausentes (salvo colestase associada)</td>
+  <td class="ok">Presentes</td>
+</tr>
+<tr>
+  <td>Prurido</td>
+  <td class="ng">Ausente</td>
+  <td class="ok">Presente (noturno, generalizado)</td>
+  <td class="ng">Ausente</td>
+  <td class="ng">Ausente</td>
+  <td class="maybe">Pode estar presente</td>
+</tr>
+<tr>
+  <td>Sinal de Murphy</td>
+  <td class="ng">Negativo</td>
+  <td class="ng">Negativo</td>
+  <td class="ok">Positivo (padrão)</td>
+  <td class="ng">Negativo</td>
+  <td class="maybe">Variável / pode ser positivo</td>
+</tr>
+<tr>
+  <td>Vesícula palpável</td>
+  <td class="ng">Não</td>
+  <td class="maybe">Sim (indolor) se neoplásica = Courvoisier-Terrier</td>
+  <td class="maybe">Sim (dolorosa) — minoria dos casos</td>
+  <td class="ng">Não</td>
+  <td class="ng">Geralmente não</td>
+</tr>
+<tr>
+  <td>Posição antálgica</td>
+  <td>Inquieto, busca posição</td>
+  <td>Variável</td>
+  <td>Imóvel, respiração superficial</td>
+  <td>Prece maometana (inclinado p/ frente)</td>
+  <td>Prostrado, sonolento (grave)</td>
+</tr>
+<tr>
+  <td>Leucocitose</td>
+  <td class="ng">Ausente</td>
+  <td class="ng">Ausente</td>
+  <td class="ok">Presente</td>
+  <td class="maybe">Presente (SIRS)</td>
+  <td class="ok">Presente, com desvio</td>
+</tr>
+<tr>
+  <td>Bilirrubina direta</td>
+  <td class="ng">Normal</td>
+  <td class="ok">↑↑ (marcador central)</td>
+  <td class="ng">Normal (se simples)</td>
+  <td class="ng">Normal (ou leve ↑ se biliar)</td>
+  <td class="ok">↑↑</td>
+</tr>
+<tr>
+  <td>FA / GGT</td>
+  <td class="ng">Normais</td>
+  <td class="ok">↑↑↑ (enzimas canaliculares)</td>
+  <td class="maybe">Leve ↑</td>
+  <td class="maybe">↑ se biliar</td>
+  <td class="ok">↑↑</td>
+</tr>
+<tr>
+  <td>Amilase / Lipase</td>
+  <td class="ng">Normais</td>
+  <td class="ng">Normais</td>
+  <td class="ng">Normais</td>
+  <td class="ok">↑↑↑ (&gt;3× LSN = critério diagnóstico)</td>
+  <td class="ng">Normais (salvo pancreatite associada)</td>
+</tr>
+<tr>
+  <td>Achado semiológico distintivo</td>
+  <td>Crise pós-prandial gordurosa autolimitada; sem febre, sem icterícia</td>
+  <td>Colúria + hipocolia + prurido; Courvoisier-Terrier se neoplásica</td>
+  <td>Murphy positivo + febre + dor &gt;6h + leucocitose</td>
+  <td>Posição antálgica + vômitos que não aliviam + Mayo-Robson; Cullen/Grey-Turner (tardios)</td>
+  <td>Tríade de Charcot; Pêntade de Reynolds (grave)</td>
+</tr>
+<tr>
+  <td>Red flag</td>
+  <td>Dor &gt;6h (→ suspeitar colecistite)</td>
+  <td>Vesícula indolor palpável em ictérico = neoplasia periampular</td>
+  <td>Febre alta + defesa difusa + peritonismo = perfuração / gangrena</td>
+  <td>SIRS persistente &gt;48h + hipotensão + SpO2 &lt;92% + Cullen/Grey-Turner</td>
+  <td>Pêntade de Reynolds = emergência cirúrgica / CPRE urgente</td>
+</tr>
+<tr>
+  <td>Exame de eleição</td>
+  <td>USG abdominal</td>
+  <td>USG → Colangiorressonância</td>
+  <td>USG (padrão-ouro: colecintilografia DISIDA)</td>
+  <td>TC com contraste (casos graves); lipase/amilase (diagnóstico inicial)</td>
+  <td>USG → CPRE (diagnóstico + terapêutico)</td>
+</tr>
+<tr>
+  <td>Tratamento</td>
+  <td>Colecistectomia VL eletiva</td>
+  <td>CPRE (litiásica) ou cirurgia (neoplásica)</td>
+  <td>Colecistectomia VL urgência (&lt;72h) + antibióticos</td>
+  <td>Suporte clínico; UTI se grave; CPRE precoce se colangite associada</td>
+  <td>CPRE + antibioticoterapia; UTI se Grau III</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<hr class="d">
+
+<!-- ===================================================== -->
+<!-- ===================================================== -->
+<!-- SIMULADO REFORMULADO -->
+<!-- ===================================================== -->
+<section id="simulado">
+<div class="sh"><span class="snum" style="color:var(--pk2)">07</span><h2 class="stitle">Simulado — <em>identifique a síndrome pelo quadro clínico</em></h2></div>
+
+<div id="quiz-wrap">
+<div class="qhdr">
+  <div class="qbadge">Simulado Clínico · 25 Questões · Nível Difícil</div>
+  <h3 class="qtitle">Síndromes Hepatobiliares — Identificação pela Semiologia</h3>
+  <p class="qdesc">O quadro clínico, a anamnese e o exame físico são os protagonistas. Identifique a síndrome pelas características que a distinguem das demais — as alternativas são semelhantes e exigem raciocínio mecanicista preciso.</p>
+</div>
+
+<div class="qtabs">
+  <div class="qtab active" onclick="showBlock('b-cole',this)">Colelitíase (Q1–5)</div>
+  <div class="qtab" onclick="showBlock('b-cole2',this)">Colestase (Q6–10)</div>
+  <div class="qtab" onclick="showBlock('b-cole3',this)">Colecistite (Q11–15)</div>
+  <div class="qtab" onclick="showBlock('b-pnc',this)">Pancreatite (Q16–20)</div>
+  <div class="qtab" onclick="showBlock('b-col',this)">Colangite (Q21–25)</div>
+</div>
+
+<!-- ========== COLELITÍASE ========== -->
+<div id="b-cole" class="qblock show">
+
+<div class="qcard" id="qc-1">
+<div class="qhd"><div class="qn">1</div><div class="qstem">Uma mulher de 44 anos, obesa, multípara, relata dor em hipocôndrio direito que surge sempre após refeições gordurosas. A dor tem caráter de pressão intensa, irradia para o ombro direito, atinge intensidade máxima em poucos minutos, permanece por cerca de 2 horas e desaparece completamente. Entre os episódios, ela está completamente bem. Ao exame físico: afebril, anictérica, abdome flácido, sem defesa, sem Sinal de Murphy.</div></div>
+<div class="qqst">O conjunto de características desta dor — localização, irradiação, duração e resolução espontânea — identifica qual síndrome com maior precisão?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,1)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda — dor em HCD após refeição gordurosa com irradiação para ombro direito é o padrão clássico da colecistite, e a ausência de febre indica fase inicial sem inflamação estabelecida.</div></div>
+<div class="opt" onclick="so(this,1)" data-o="B"><div class="ol">B</div><div class="otxt">Cólica biliar por colelitíase sintomática — dor visceral pós-prandial gordurosa, em HCD, irradiada para ombro/escápula direita, com duração de minutos a 4–6 horas e resolução espontânea completa, sem febre, sem icterícia e com Murphy negativo entre os episódios é o padrão específico da cólica biliar.</div></div>
+<div class="opt" onclick="so(this,1)" data-o="C"><div class="ol">C</div><div class="otxt">Dispepsia funcional — dor epigástrica pós-prandial recorrente em paciente obesa com múltiplos episódios semelhantes ao longo do tempo é mais compatível com síndrome dispéptica do que com patologia biliar estrutural.</div></div>
+<div class="opt" onclick="so(this,1)" data-o="D"><div class="ol">D</div><div class="otxt">Pancreatite crônica — episódios recorrentes de dor abdominal alta pós-prandial gordurosa em mulher obesa evocam mais a pancreatite crônica, que cursa com crises autolimitadas e remissão completa entre os episódios.</div></div>
+<div class="opt" onclick="so(this,1)" data-o="E"><div class="ol">E</div><div class="otxt">Colestase biliar — dor em HCD com irradiação para ombro direito acompanhada de resolução espontânea sugere obstrução transitória do colédoco com desimpactação espontânea, gerando síndrome colestática de curta duração.</div></div>
+</div>
+<button class="cbtn" onclick="ca(1,'B')" id="btn-1">Confirmar</button>
+<div class="fb" id="fb-1"></div>
+</div>
+
+<div class="qcard" id="qc-2">
+<div class="qhd"><div class="qn">2</div><div class="qstem">Um homem de 57 anos chega ao PS referindo dor abdominal iniciada 3 horas atrás após jantar. A dor localiza-se no epigástrio e hipocôndrio direito, irradia para a escápula direita, tem caráter de cólica intensa, e o paciente está inquieto, levantando e sentando sem encontrar posição de alívio. Ao exame: afebril (36,8°C), anictérico, abdome com sensibilidade difusa mas sem defesa muscular, Sinal de Murphy negativo. Ele relata episódio idêntico há 3 meses, resolvido sozinho em 1,5 hora.</div></div>
+<div class="qqst">A postura do paciente — inquieto, buscando posição — é um dado semiológico importante. O que ela indica e qual síndrome melhor explica este quadro?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,2)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda — a inquietação e a busca por posição de alívio indicam peritonite incipiente; pacientes com inflamação peritoneal ficam agitados tentando evitar o movimento que agrava a dor.</div></div>
+<div class="opt" onclick="so(this,2)" data-o="B"><div class="ol">B</div><div class="otxt">Pancreatite aguda — dor epigástrica intensa com irradiação para dorso em paciente muito agitado e sem posição de alívio é o padrão pancreático, onde a dor retroperitoneal não melhora com nenhuma postura.</div></div>
+<div class="opt" onclick="so(this,2)" data-o="C"><div class="ol">C</div><div class="otxt">Cólica biliar por colelitíase sintomática — a inquietação e agitação são típicas da dor visceral pura (sem componente peritoneal), onde o paciente busca posição sem encontrá-la; a dor é autolimitada, pós-prandial gordurosa, com irradiação para escápula D, sem febre e com Murphy negativo.</div></div>
+<div class="opt" onclick="so(this,2)" data-o="D"><div class="ol">D</div><div class="otxt">Colangite aguda — episódios recorrentes de dor em HCD com agitação em homem de meia-idade sugerem colangite por coledocolitíase, que tipicamente cursa com crises de dor + febre + icterícia de forma recorrente.</div></div>
+<div class="opt" onclick="so(this,2)" data-o="E"><div class="ol">E</div><div class="otxt">Cólica renal direita — dor em cólica intensa com irradiação para região posterior (escápula), paciente muito agitado e sem posição de alívio, com episódios prévios semelhantes e resolução espontânea, é mais compatível com urolitíase do que com patologia biliar.</div></div>
+</div>
+<button class="cbtn" onclick="ca(2,'C')" id="btn-2">Confirmar</button>
+<div class="fb" id="fb-2"></div>
+</div>
+
+<div class="qcard" id="qc-3">
+<div class="qhd"><div class="qn">3</div><div class="qstem">Uma paciente de 38 anos chega à consulta referindo "dor de estômago" frequente associada a gases, distensão abdominal e piora com alimentos gordurosos. Diz que já lhe foi diagnosticada "pedra na vesícula" há 1 ano e atribui todos os sintomas a essa condição. Ao exame: afebril, anictérica, abdome sem dor à palpação, Murphy negativo.</div></div>
+<div class="qqst">Qual a interpretação semiológica mais precisa deste quadro?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,3)" data-o="A"><div class="ol">A</div><div class="otxt">Colelitíase sintomática — dispepsia, gases e distensão abdominal são manifestações validadas da litíase biliar quando o cálculo obstrui intermitentemente o ducto cístico sem gerar cólica clássica, configurando a chamada "cólica biliar atípica".</div></div>
+<div class="opt" onclick="so(this,3)" data-o="B"><div class="ol">B</div><div class="otxt">Colestase leve — os sintomas inespecíficos de "dor de estômago" com gases e piora pós-gordurosa em portadora de colelitíase conhecida sugerem obstrução biliar intermitente de baixo grau, com colestase subclínica.</div></div>
+<div class="opt" onclick="so(this,3)" data-o="C"><div class="ol">C</div><div class="otxt">Colelitíase assintomática com sintomas inespecíficos não atribuíveis à litíase — dispepsia, flatulência e distensão abdominal não são manifestações específicas da colelitíase; a única manifestação clínica validada é a cólica biliar. A ausência de dor em HCD pós-prandial típica, Murphy negativo e exame normal indicam que os sintomas têm outra etiologia a investigar.</div></div>
+<div class="opt" onclick="so(this,3)" data-o="D"><div class="ol">D</div><div class="otxt">Colecistite crônica — episódios repetidos de inflamação vesicular subclínica em portadora de colelitíase geram progressivamente dispepsia, gases e intolerância a gorduras como manifestação da colecistite em fase crônica.</div></div>
+<div class="opt" onclick="so(this,3)" data-o="E"><div class="ol">E</div><div class="otxt">Colelitíase sintomática com indicação cirúrgica — qualquer sintoma digestivo em portadora de colelitíase conhecida deve ser atribuído à litíase e tratado com colecistectomia, pois o risco de complicações justifica a intervenção mesmo sem cólica típica.</div></div>
+</div>
+<button class="cbtn" onclick="ca(3,'C')" id="btn-3">Confirmar</button>
+<div class="fb" id="fb-3"></div>
+</div>
+
+<div class="qcard" id="qc-4">
+<div class="qhd"><div class="qn">4</div><div class="qstem">Uma mulher de 29 anos, gestante de 20 semanas, G2P1, refere dor em hipocôndrio direito há 2 horas iniciada após o almoço (macarrão com molho cremoso). A dor irradia para o ombro direito, tem intensidade 7/10. Afebril (36,9°C), anictérica. Ao exame: abdome gravídico, dor à palpação em HCD, Murphy negativo. Relata episódio semelhante há 4 meses (pré-gestação) resolvido sozinho em 3 horas.</div></div>
+<div class="qqst">Considerando o contexto clínico completo, qual é a síndrome mais provável e qual o fator gestacional que contribui para a sua ocorrência?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,4)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda gestacional — a gestação predispõe à colecistite por compressão uterina da vesícula biliar no 2° trimestre, e a dor em HCD com duração de 2 horas, mesmo sem febre, é suficiente para configurar colecistite na gestante.</div></div>
+<div class="opt" onclick="so(this,4)" data-o="B"><div class="ol">B</div><div class="otxt">Cólica biliar por colelitíase — a gestação favorece a formação e crescimento de cálculos biliares por dois mecanismos: a progesterona gera hipomotilidade vesicular (estase) e o estrogênio aumenta a secreção biliar de colesterol (supersaturação). O quadro pós-prandial gorduroso, autolimitado, sem febre e com Murphy negativo é cólica biliar clássica.</div></div>
+<div class="opt" onclick="so(this,4)" data-o="C"><div class="ol">C</div><div class="otxt">Colestase intra-hepática da gravidez — a gestação predispõe à colestase intra-hepática hormonal, que se manifesta com dor em HCD, icterícia e prurido a partir do 2° trimestre, quadro compatível com o da paciente.</div></div>
+<div class="opt" onclick="so(this,4)" data-o="D"><div class="ol">D</div><div class="otxt">Dor ligamentar uterina — no 2° trimestre, o crescimento uterino gera tensão nos ligamentos redondos, produzindo dor lateral abdominal que pode ser confundida com dor biliar, especialmente quando ocorre após movimento ou alimentação.</div></div>
+<div class="opt" onclick="so(this,4)" data-o="E"><div class="ol">E</div><div class="otxt">Pancreatite aguda gestacional — refeição gordurosa + dor abdominal alta em gestante do 2° trimestre com episódio prévio semelhante sugere pancreatite biliar recorrente, que é mais frequente na gestação pelo aumento do colesterol sérico.</div></div>
+</div>
+<button class="cbtn" onclick="ca(4,'B')" id="btn-4">Confirmar</button>
+<div class="fb" id="fb-4"></div>
+</div>
+
+<div class="qcard" id="qc-5">
+<div class="qhd"><div class="qn">5</div><div class="qstem">Dois pacientes chegam ao PS com queixa de dor em HCD após churrasco. Paciente A (homem, 52 anos): dor há 2 horas, inquieto, afebril, anictérico, Murphy negativo. Paciente B (homem, 47 anos): dor há 8 horas, imóvel na maca, evita movimentos, febre 38,5°C, Murphy positivo. Ambos têm colelitíase conhecida.</div></div>
+<div class="qqst">A diferença de postura entre os dois pacientes é um dado semiológico central. O que ela revela sobre a fisiopatologia de cada quadro?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,5)" data-o="A"><div class="ol">A</div><div class="otxt">Ambos têm cólica biliar, mas em intensidades diferentes — o paciente A tem cólica leve (inquieto, mas sem febre) e o B tem cólica grave com resposta inflamatória sistêmica intensa, sem que haja diferença fisiopatológica estrutural entre os dois quadros.</div></div>
+<div class="opt" onclick="so(this,5)" data-o="B"><div class="ol">B</div><div class="otxt">Paciente A tem cólica biliar (dor visceral pura — sem peritonite → inquietação, busca posição) e paciente B tem colecistite aguda (impactação persistente → inflamação da serosa vesicular → irritação peritoneal → imobilidade para evitar movimento que agrava a dor). Murphy negativo em A vs. positivo em B confirma: vesícula não inflamada vs. inflamada.</div></div>
+<div class="opt" onclick="so(this,5)" data-o="C"><div class="ol">C</div><div class="otxt">Paciente A tem cólica biliar e paciente B tem colangite aguda — a febre com Murphy positivo no paciente B indica infecção biliar sistêmica com acometimento da vesícula por extensão retrógrada pelo ducto cístico.</div></div>
+<div class="opt" onclick="so(this,5)" data-o="D"><div class="ol">D</div><div class="otxt">A diferença de postura não tem valor semiológico específico nas síndromes biliares — a inquietação do A e a imobilidade do B refletem apenas diferenças individuais de tolerância à dor, não diferenças fisiopatológicas entre os quadros.</div></div>
+<div class="opt" onclick="so(this,5)" data-o="E"><div class="ol">E</div><div class="otxt">Paciente A tem cólica biliar e paciente B tem pancreatite biliar — a imobilidade e a febre no B indicam que o cálculo migrou para a ampola de Vater, gerando pancreatite aguda, cujos pacientes também ficam imóveis pela dor retroperitoneal intensa.</div></div>
+</div>
+<button class="cbtn" onclick="ca(5,'B')" id="btn-5">Confirmar</button>
+<div class="fb" id="fb-5"></div>
+</div>
+<div class="qscore" id="sc-cole">Colelitíase: 0/5</div>
+</div>
+
+<!-- ========== COLESTASE ========== -->
+<div id="b-cole2" class="qblock">
+
+<div class="qcard" id="qc-6">
+<div class="qhd"><div class="qn">6</div><div class="qstem">Uma mulher de 58 anos refere que, há 3 semanas, suas roupas claras estão "ficando amarelas" ao contato com o suor. A família notou olhos amarelados. Relata coceira intensa à noite, principalmente nas palmas e plantas, e percebeu que a urina está "cor de Coca-Cola" e as fezes estão "quase brancas". Perdeu 6 kg nos últimos 2 meses. Sem dor abdominal significativa, sem febre. Ao exame: ictérica com tonalidade esverdeada, escoriações no dorso, vesícula palpável em HCD, indolor.</div></div>
+<div class="qqst">Qual síndrome este conjunto de achados caracteriza, e qual sinal físico alerta para a etiologia mais grave?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,6)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite crônica com icterícia obstrutiva — colecistite de longa evolução pode gerar fibrose da via biliar com obstrução progressiva e icterícia; a vesícula palpável dolorosa em HCD é típica da colecistite crônica agudizada.</div></div>
+<div class="opt" onclick="so(this,6)" data-o="B"><div class="ol">B</div><div class="otxt">Hepatite viral aguda — icterícia esverdeada com colúria, hipocolia e prurido são manifestações clássicas da hepatite viral colestática; a perda de peso e as escoriações resultam do estado catabólico e da cocoeira associada à hepatite.</div></div>
+<div class="opt" onclick="so(this,6)" data-o="C"><div class="ol">C</div><div class="otxt">Colangite aguda — a icterícia progressiva com prurido, colúria e hipocolia em mulher com perda de peso e vesícula palpável indica infecção da via biliar, que por obstrução prolongada gera todos esses achados colestáticos.</div></div>
+<div class="opt" onclick="so(this,6)" data-o="D"><div class="ol">D</div><div class="otxt">Colestase obstrutiva extra-hepática por neoplasia periampular — icterícia verdínica progressiva, prurido noturno, colúria, hipocolia, perda de peso de 6 kg e vesícula palpável INDOLOR em paciente ictérica (Sinal de Courvoisier-Terrier) caracterizam obstrução biliar de causa neoplásica até prova em contrário.</div></div>
+<div class="opt" onclick="so(this,6)" data-o="E"><div class="ol">E</div><div class="otxt">Colelitíase com colestase transitória — episódios de migração de microlitos para o colédoco com desimpactação espontânea geram colestase intermitente com icterícia, prurido e alteração das fezes; a perda de peso resulta da restrição alimentar pela intolerância a gorduras.</div></div>
+</div>
+<button class="cbtn" onclick="ca(6,'D')" id="btn-6">Confirmar</button>
+<div class="fb" id="fb-6"></div>
+</div>
+
+<div class="qcard" id="qc-7">
+<div class="qhd"><div class="qn">7</div><div class="qstem">Um homem de 42 anos nota que "ficou amarelo" ao longo de 2 dias após episódio de dor em HCD intensa há 1 semana. Relata que a urina escureceu e as fezes estão claras. Sem febre atual. Sem prurido intenso. Ao exame: ictérico (tonalidade amarelo-esverdeada), anictérico não está; sem vesícula palpável; dor à palpação profunda em HCD. Refere episódios prévios de cólica biliar diagnosticada por USG (colelitíase).</div></div>
+<div class="qqst">Qual a interpretação clínica mais provável para a sequência temporal — cólica biliar → icterícia surgindo 1 semana depois?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,7)" data-o="A"><div class="ol">A</div><div class="otxt">Hepatite aguda viral — a cólica biliar precipitou uma resposta inflamatória hepática, gerando hepatite reativa com icterícia de instalação progressiva; isso é comum em portadores de colelitíase que desenvolvem hepatite após crise álgica intensa.</div></div>
+<div class="opt" onclick="so(this,7)" data-o="B"><div class="ol">B</div><div class="otxt">Colestase obstrutiva extra-hepática por coledocolitíase — a cólica biliar representa a migração do cálculo da vesícula para o colédoco; uma vez impactado no colédoco, gera obstrução biliar progressiva → icterícia verdínica + colúria + hipocolia. A sequência temporal "cólica → icterícia" é a assinatura da migração do cálculo para a via biliar.</div></div>
+<div class="opt" onclick="so(this,7)" data-o="C"><div class="ol">C</div><div class="otxt">Síndrome de Mirizzi — o cálculo impacta no infundíbulo e comprime o ducto hepático por fora, gerando colecistite aguda com icterícia; a ausência de dor atual e de vesícula palpável sugere que a compressão se resolveu parcialmente.</div></div>
+<div class="opt" onclick="so(this,7)" data-o="D"><div class="ol">D</div><div class="otxt">Colangite em fase inicial — cálculo migrou para o colédoco e já está gerando infecção biliar; a ausência de febre atual é compatível com colangite grau I (leve), que pode cursar sem febre nas primeiras 24–48 horas.</div></div>
+<div class="opt" onclick="so(this,7)" data-o="E"><div class="ol">E</div><div class="otxt">Colestase intra-hepática por estresse — episódios intensos de dor visceral podem precipitar colestase intra-hepática funcional por liberação de catecolaminas que inibem os transportadores biliares hepatocitários, gerando icterícia transitória pós-cólica.</div></div>
+</div>
+<button class="cbtn" onclick="ca(7,'B')" id="btn-7">Confirmar</button>
+<div class="fb" id="fb-7"></div>
+</div>
+
+<div class="qcard" id="qc-8">
+<div class="qhd"><div class="qn">8</div><div class="qstem">Uma mulher de 35 anos procura o médico com queixa de coceira intensa no corpo, especialmente à noite, há 6 semanas. Percebeu que a urina está mais escura e as fezes mais claras. Não apresenta dor abdominal. Não tem febre. Ao exame físico: discretamente ictérica (tonalidade esverdeada), múltiplas escoriações no dorso e nos braços, sem vesícula palpável, sem hepatomegalia. Nega uso de álcool ou medicamentos hepatotóxicos.</div></div>
+<div class="qqst">O prurido noturno intenso com escoriações é uma pista semiológica central. Qual o mecanismo que o explica e a qual síndrome pertence?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,8)" data-o="A"><div class="ol">A</div><div class="otxt">Colangite aguda — o prurido noturno resulta do acúmulo de endotoxinas bacterianas liberadas na bacteremia biliar, que têm efeito pruritogênico sobre os terminais nervosos cutâneos; é uma manifestação sistêmica da infecção biliar.</div></div>
+<div class="opt" onclick="so(this,8)" data-o="B"><div class="ol">B</div><div class="otxt">Colestase biliar — o prurido colestático resulta do acúmulo cutâneo de sais biliares e mediadores pruritogênicos (lisofosfolipídios, endocanabinoides, substâncias opióides endógenas) que não são excretados pela bile bloqueada. O predomínio noturno é característico. As escoriações são a "pegada do prurido" — sinal físico que antecede a pergunta do médico. Colúria + hipocolia + icterícia verdínica + prurido = síndrome colestática.</div></div>
+<div class="opt" onclick="so(this,8)" data-o="C"><div class="ol">C</div><div class="otxt">Colecistite aguda — o prurido em colecistite resulta da liberação de histamina pelo processo inflamatório da parede vesicular; as escoriações intensas indicam colecistite com empiema, na qual a resposta inflamatória sistêmica gera prurido generalizado.</div></div>
+<div class="opt" onclick="so(this,8)" data-o="D"><div class="ol">D</div><div class="otxt">Icterícia hemolítica — o prurido noturno com escoriações, icterícia e alteração da cor das urinas e fezes caracteriza anemia hemolítica com hemólise intravascular intensa, cujos produtos de degradação da hemoglobina têm efeito pruritogênico direto.</div></div>
+<div class="opt" onclick="so(this,8)" data-o="E"><div class="ol">E</div><div class="otxt">Colelitíase sintomática — os episódios noturnos de prurido em portadora de cálculos resultam da contração vesicular noturna estimulada pelo jejum prolongado, que mobiliza pequenos cálculos para o ducto cístico gerando microobstruções transitórias com liberação local de histamina.</div></div>
+</div>
+<button class="cbtn" onclick="ca(8,'B')" id="btn-8">Confirmar</button>
+<div class="fb" id="fb-8"></div>
+</div>
+
+<div class="qcard" id="qc-9">
+<div class="qhd"><div class="qn">9</div><div class="qstem">Durante o exame de um paciente ictérico em uma sala hospitalar com iluminação fluorescente, o interno conclui que a icterícia é discreta. A preceptora pede que levem o paciente até a janela, onde a icterícia fica nitidamente mais evidente com tonalidade esverdeada. A preceptora então pergunta: qual a sequência anatômica correta para avaliar icterícia e qual tonalidade orienta para síndrome colestática?</div></div>
+<div class="qqst">Assinale a alternativa que descreve corretamente a avaliação semiológica da icterícia e sua correlação com a síndrome colestática:</div>
+<div class="opts">
+<div class="opt" onclick="so(this,9)" data-o="A"><div class="ol">A</div><div class="otxt">A sequência correta é pele → escleróticas → mucosas; a tonalidade esverdeada (verdínica) indica icterícia hemolítica por oxidação da bilirrubina indireta acumulada, enquanto a tonalidade alaranjada (rubínica) indica colestase.</div></div>
+<div class="opt" onclick="so(this,9)" data-o="B"><div class="ol">B</div><div class="otxt">A sequência correta é escleróticas (pálpebra tracionada) → mucosa sublingual → frênulo → palato duro → pele; a tonalidade verdínica (amarelo-esverdeada) indica colestase, pois a bilirrubina direta acumulada sofre oxidação progressiva a biliverdina — a tonalidade mais esverdeada, mais prolongada é a colestase. A luz fluorescente fria mascara tons ictéricos, daí a necessidade de luz natural.</div></div>
+<div class="opt" onclick="so(this,9)" data-o="C"><div class="ol">C</div><div class="otxt">A avaliação começa pela pele do tronco, que acumula bilirrubina precocemente por sua maior vascularização; a tonalidade verdínica indica hepatite aguda grave, e a tonalidade amarelo-pálida (flavínica) indica colestase por acúmulo de bilirrubina conjugada hidrofílica.</div></div>
+<div class="opt" onclick="so(this,9)" data-o="D"><div class="ol">D</div><div class="otxt">As escleróticas são avaliadas por último, pois por terem baixa vascularização acumulam bilirrubina tardiamente; a tonalidade esverdeada indica hemólise grave com bilirrubina indireta elevada que sofre oxidação cutânea a biliverdina.</div></div>
+<div class="opt" onclick="so(this,9)" data-o="E"><div class="ol">E</div><div class="otxt">A luz fluorescente amplifica a tonalidade ictérica, por isso a avaliação sob luz artificial é mais sensível; a tonalidade verdínica na colestase resulta do acúmulo de GGT (gamaglutamiltransferase) na pele, que tem coloração verde característica.</div></div>
+</div>
+<button class="cbtn" onclick="ca(9,'B')" id="btn-9">Confirmar</button>
+<div class="fb" id="fb-9"></div>
+</div>
+
+<div class="qcard" id="qc-10">
+<div class="qhd"><div class="qn">10</div><div class="qstem">Um paciente de 67 anos, com histórico de emagrecimento progressivo (8 kg em 3 meses), é trazido por familiares por "ficar amarelo". Não refere dor abdominal. Ao exame: ictérico (tonalidade verdínica, 3+/4+), escoriações em braços e dorso (prurido), fezes descritas como "cor de massa de vidraceiro", urina escura. Ao palpar o abdome: massa arredondada, lisa, tensa e completamente indolor sob o rebordo costal direito, na linha hemiclavicular.</div></div>
+<div class="qqst">A massa palpável em HCD com as características descritas representa qual sinal semiológico, e o que ele indica fisiopatologicamente?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,10)" data-o="A"><div class="ol">A</div><div class="otxt">Sinal de Murphy positivo — a massa palpável dolorosa em HCD indica colecistite aguda com hidropisia vesicular; a ausência de dor espontânea não exclui o diagnóstico pois idosos frequentemente têm Murphy atenuado por neuropatia autonômica.</div></div>
+<div class="opt" onclick="so(this,10)" data-o="B"><div class="ol">B</div><div class="otxt">Hepatomegalia — o lobo direito do fígado aumentado em paciente com icterícia obstrutiva por metástases hepáticas difusas gera massa palpável sob o rebordo costal direito; a consistência tensa e lisa reflete a cápsula de Glisson distendida.</div></div>
+<div class="opt" onclick="so(this,10)" data-o="C"><div class="ol">C</div><div class="otxt">Sinal de Courvoisier-Terrier — vesícula biliar palpável, distendida e INDOLOR em paciente ictérico com icterícia progressiva sem dor. Fisiopatologia: vesícula previamente sem litíase → sem fibrose da parede → ao ser obstruída progressivamente por neoplasia periampular, distende sem dor. A lei de Courvoisier: vesícula com colelitíase crônica fica fibrosada e não distende; vesícula normal distende silenciosamente na obstrução neoplásica.</div></div>
+<div class="opt" onclick="so(this,10)" data-o="D"><div class="ol">D</div><div class="otxt">Abscesso hepático — massa palpável, tensa e dolorosa em HCD em paciente ictérico com emagrecimento e escoriações representa coleção hepática piogênica com extensão para a superfície hepática; a ausência de febre atual não exclui o diagnóstico.</div></div>
+<div class="opt" onclick="so(this,10)" data-o="E"><div class="ol">E</div><div class="otxt">Hidropisia vesicular por coledocolitíase — cálculo impactado no colédoco gera hipertensão biliar que se transmite retrogradamente para a vesícula, distendendo-a sem dor pois a obstrução é a montante do ducto cístico e não inflama diretamente a parede vesicular.</div></div>
+</div>
+<button class="cbtn" onclick="ca(10,'C')" id="btn-10">Confirmar</button>
+<div class="fb" id="fb-10"></div>
+</div>
+<div class="qscore" id="sc-cole2">Colestase: 0/5</div>
+</div>
+
+<!-- ========== COLECISTITE ========== -->
+<div id="b-cole3" class="qblock">
+
+<div class="qcard" id="qc-11">
+<div class="qhd"><div class="qn">11</div><div class="qstem">Uma mulher de 49 anos chega ao PS com dor em hipocôndrio direito há 9 horas, contínua e progressiva. Refere que iniciou após o jantar (frango grelhado com creme) mas, ao contrário de crises anteriores, "essa dor não passa". Está com febre (38,3°C), náuseas e dois episódios de vômito. Ao exame: imóvel na maca, respiração superficial, dor intensa à palpação em HCD. Ao solicitar inspiração profunda durante a palpação subcostal direita, ela interrompe abruptamente a inspiração com expressão de dor aguda. Anictérica.</div></div>
+<div class="qqst">O sinal descrito durante o exame físico — interrupção abrupta da inspiração pela dor — identifica qual síndrome, e o que o diferencia de um episódio de cólica biliar simples?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,11)" data-o="A"><div class="ol">A</div><div class="otxt">Cólica biliar — a interrupção da inspiração por dor à palpação subcostal representa o pico de intensidade da cólica durante a inspiração, quando a vesícula descende em direção aos dedos. A duração de 9 horas é incomum, mas pode ocorrer em crises prolongadas.</div></div>
+<div class="opt" onclick="so(this,11)" data-o="B"><div class="ol">B</div><div class="otxt">Colangite aguda — a interrupção da inspiração com febre e vômitos em mulher com dor em HCD há 9 horas indica infecção biliar sistêmica; a inspiração profunda aumenta a pressão intra-abdominal e agrava a bacteremia ao comprimir o fígado inflamado.</div></div>
+<div class="opt" onclick="so(this,11)" data-o="C"><div class="ol">C</div><div class="otxt">Colecistite aguda — a interrupção abrupta da inspiração pela dor à palpação subcostal direita é o Sinal de Murphy positivo: durante a inspiração, a vesícula inflamada desce em direção à mão do examinador e a dor interrompe o fôlego. Diferencia-se da cólica biliar pela duração &gt;6h, pela febre, pela imobilidade na maca (dor parietal, não visceral) e pelo Murphy positivo.</div></div>
+<div class="opt" onclick="so(this,11)" data-o="D"><div class="ol">D</div><div class="otxt">Pancreatite aguda — dor abdominal contínua por mais de 6 horas após refeição gordurosa com febre e vômitos, com piora à inspiração por compressão do pâncreas retroperitoneal pelo diafragma, é mais compatível com pancreatite do que com colecistite.</div></div>
+<div class="opt" onclick="so(this,11)" data-o="E"><div class="ol">E</div><div class="otxt">Abscesso hepático — dor contínua em HCD por mais de 6 horas com febre e imobilidade na maca em paciente com episódios biliares prévios sugere formação de abscesso hepático piogênico; o sinal respiratório indica irritação diafragmática pelo abscesso adjacente.</div></div>
+</div>
+<button class="cbtn" onclick="ca(11,'C')" id="btn-11">Confirmar</button>
+<div class="fb" id="fb-11"></div>
+</div>
+
+<div class="qcard" id="qc-12">
+<div class="qhd"><div class="qn">12</div><div class="qstem">Um homem de 72 anos, diabético há 20 anos, é trazido pela esposa com dor em hipocôndrio direito há 14 horas, febre 38,1°C, náuseas e inapetência. Ao exame: levemente taquicárdico (98 bpm), afebril ao toque (mas termômetro marca 38,1°C), anictérico. A palpação do HCD provoca dor intensa, mas quando você posiciona os dedos no ponto cístico e pede para ele inspirar fundo, ele inspira completamente sem interromper a respiração, porém com expressão facial de desconforto leve. A palpação do HCE é indolor.</div></div>
+<div class="qqst">O Sinal de Murphy é negativo neste caso. Qual a interpretação clínica correta desta situação?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,12)" data-o="A"><div class="ol">A</div><div class="otxt">Murphy negativo exclui colecistite aguda com segurança — o diagnóstico mais provável é hepatite aguda, pois a dor à palpação de HCD com febre sem Murphy positivo é o padrão da hepatite viral com comprometimento do parênquima hepático.</div></div>
+<div class="opt" onclick="so(this,12)" data-o="B"><div class="ol">B</div><div class="otxt">Murphy negativo neste contexto não exclui colecistite aguda — em idosos e diabéticos, o Murphy é frequentemente negativo mesmo com colecistite franca, por redução do limiar álgico (neuropatia autonômica diabética). Dor em HCD &gt;6h + febre + taquicardia em diabético idoso obrigam a manter alta suspeição e avançar na investigação.</div></div>
+<div class="opt" onclick="so(this,12)" data-o="C"><div class="ol">C</div><div class="otxt">Murphy negativo em diabético com dor em HCD confirma colecistite alitiásica — a ausência do sinal resulta da hipomotilidade vesicular diabética que impede a vesícula de descer durante a inspiração, tornando o Murphy tecnicamente impossível de realizar.</div></div>
+<div class="opt" onclick="so(this,12)" data-o="D"><div class="ol">D</div><div class="otxt">Murphy negativo neste contexto indica que a dor em HCD não é de origem vesicular — taquicardia + febre + dor HCD em diabético sugerem síndrome coronariana aguda de apresentação atípica, que deve ser investigada prioritariamente antes de qualquer hipótese biliar.</div></div>
+<div class="opt" onclick="so(this,12)" data-o="E"><div class="ol">E</div><div class="otxt">O Murphy foi realizado incorretamente — em diabéticos, a manobra de Murphy deve ser realizada com o paciente em decúbito lateral esquerdo para compensar a hipomotilidade vesicular; realizado em decúbito dorsal, gera sempre falso negativo nessa população.</div></div>
+</div>
+<button class="cbtn" onclick="ca(12,'B')" id="btn-12">Confirmar</button>
+<div class="fb" id="fb-12"></div>
+</div>
+
+<div class="qcard" id="qc-13">
+<div class="qhd"><div class="qn">13</div><div class="qstem">Uma mulher de 55 anos com colelitíase conhecida desenvolve dor em HCD há 11 horas, febre 38,8°C, vômitos e icterícia discreta (1+/4+). Murphy positivo. Ao questionar sobre a icterícia, a paciente relata que ela surgiu junto com a piora da dor, não antes.</div></div>
+<div class="qqst">A presença de icterícia em um quadro de colecistite aguda levanta qual hipótese fisiopatológica específica, e o que distingue esta situação da coledocolitíase simples com colestase?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,13)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda com colangite associada — a icterícia em colecistite sempre indica migração concomitante de cálculo para o colédoco com infecção ascendente; toda colecistite com icterícia deve ser tratada como colangite até prova em contrário.</div></div>
+<div class="opt" onclick="so(this,13)" data-o="B"><div class="ol">B</div><div class="otxt">Síndrome de Mirizzi — cálculo impactado no infundíbulo vesicular (Murphy positivo) comprime extrinsecamente o ducto hepático comum, gerando icterícia obstrutiva sem cálculo intraluminal no colédoco. Distingue-se da coledocolitíase simples porque a obstrução é extrínseca e a vesícula está inflamada (Murphy +), não apenas servindo de reservatório de cálculos para migração.</div></div>
+<div class="opt" onclick="so(this,13)" data-o="C"><div class="ol">C</div><div class="otxt">Colecistite aguda com hepatite reativa — a inflamação da vesícula por contiguidade com o fígado gera hepatite química local com icterícia hepatocelular, que é distinguida da colestase obstrutiva pela elevação predominante de ALT/AST em relação a BD/FA.</div></div>
+<div class="opt" onclick="so(this,13)" data-o="D"><div class="ol">D</div><div class="otxt">Colecistite aguda com coledocolitíase associada — a icterícia em colecistite sempre indica cálculo no colédoco, que migrou simultaneamente ao que precipitou a colecistite; Murphy positivo + icterícia = necessariamente obstrução biliar dual (ducto cístico + colédoco).</div></div>
+<div class="opt" onclick="so(this,13)" data-o="E"><div class="ol">E</div><div class="otxt">Colecistite aguda com icterícia fisiológica por hemólise — o processo inflamatório intenso da colecistite aguda pode desencadear hemólise microangiopática com icterícia de bilirrubina indireta, distinguindo-se da colestase pela ausência de colúria e hipocolia.</div></div>
+</div>
+<button class="cbtn" onclick="ca(13,'B')" id="btn-13">Confirmar</button>
+<div class="fb" id="fb-13"></div>
+</div>
+
+<div class="qcard" id="qc-14">
+<div class="qhd"><div class="qn">14</div><div class="qstem">Um interno descreve no prontuário: "Paciente com dor em HCD há 8 horas, febre 38,5°C, vômitos. Realizei o Sinal de Murphy: comprimi o HCD profundamente e ao soltar a mão rapidamente, a paciente referiu dor intensa — Murphy positivo. Conduzo como colecistite aguda."</div></div>
+<div class="qqst">Há um erro semiológico na descrição do interno. Qual é ele, e qual a definição correta do Sinal de Murphy?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,14)" data-o="A"><div class="ol">A</div><div class="otxt">Não há erro — a descompressão dolorosa em HCD é exatamente o Sinal de Murphy, que confirma irritação peritoneal da vesícula inflamada; a conduta de colecistite está correta para esse achado.</div></div>
+<div class="opt" onclick="so(this,14)" data-o="B"><div class="ol">B</div><div class="otxt">O erro está na profundidade da palpação — o Murphy deve ser realizado com palpação superficial, não profunda; a compressão profunda em HCD com descompressão dolorosa é o Sinal de Blumberg, que indica peritonite generalizada, não colecistite isolada.</div></div>
+<div class="opt" onclick="so(this,14)" data-o="C"><div class="ol">C</div><div class="otxt">O erro conceitual é confundir o Sinal de Murphy com o Sinal de Blumberg. Murphy = interrupção abrupta da inspiração profunda pela dor ao encontro da vesícula inflamada com os dedos do examinador durante a inspiração ("inspiratory arrest"). Blumberg = descompressão dolorosa (sinal de peritonite). São sinais diferentes, com mecanismos distintos. O interno realizou o Blumberg em HCD e chamou de Murphy.</div></div>
+<div class="opt" onclick="so(this,14)" data-o="D"><div class="ol">D</div><div class="otxt">O erro está na localização — o Murphy deve ser pesquisado no epigástrio, não no HCD, pois a vesícula biliar projeta-se topograficamente sobre o epigástrio superior, e a pesquisa em HCD gera frequentemente falso positivo por compressão do cólon hepático.</div></div>
+<div class="opt" onclick="so(this,14)" data-o="E"><div class="ol">E</div><div class="otxt">O erro está em realizar o Murphy com a paciente em decúbito dorsal — a manobra deve ser realizada com o paciente sentado a 45° para que a vesícula fique mais acessível à palpação subcostal durante a inspiração profunda.</div></div>
+</div>
+<button class="cbtn" onclick="ca(14,'C')" id="btn-14">Confirmar</button>
+<div class="fb" id="fb-14"></div>
+</div>
+
+<div class="qcard" id="qc-15">
+<div class="qhd"><div class="qn">15</div><div class="qstem">Um paciente de 63 anos internado em UTI há 10 dias por pneumonia grave, em jejum e nutrição parenteral, desenvolve febre nova (38,9°C) e distensão abdominal. Não consegue referir dor por estar sob sedação leve. Ao examinar o abdome, o médico plantonista percebe leve rigidez em HCD. Não há história de cólica biliar prévia ou litíase conhecida.</div></div>
+<div class="qqst">Qual o diagnóstico mais provável neste cenário e quais elementos do contexto clínico — não do exame físico isolado — orientam esse raciocínio?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,15)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda calculosa — mesmo sem histórico de litíase, cálculos silentes estão presentes em ~15% da população e podem se tornar sintomáticos durante internação por piora hemodinâmica e hipomotilidade vesicular induzida pela doença crítica.</div></div>
+<div class="opt" onclick="so(this,15)" data-o="B"><div class="ol">B</div><div class="otxt">Colecistite alitiásica — em paciente crítico com jejum prolongado (ausência de estimulação prandial da CCK → hipomotilidade vesicular → estase), nutrição parenteral e hipoperfusão esplâncnica (pneumonia grave + sepse → isquemia mural vesicular), a vesícula inflama sem cálculos. O contexto clínico — não a história biliar — é o que orienta este diagnóstico.</div></div>
+<div class="opt" onclick="so(this,15)" data-o="C"><div class="ol">C</div><div class="otxt">Abscesso hepático piogênico — pneumonia grave por bactérias capsuladas (pneumococo, Klebsiella) pode disseminar para o fígado pela via hematogênica, gerando abscesso que se apresenta com febre, rigidez em HCD e sem história biliar prévia.</div></div>
+<div class="opt" onclick="so(this,15)" data-o="D"><div class="ol">D</div><div class="otxt">Hepatite medicamentosa — o uso prolongado de antibióticos e analgésicos em UTI gera frequentemente hepatite tóxica com febre e dor em HCD; a rigidez ao exame reflete a defesa muscular secundária ao processo inflamatório hepático.</div></div>
+<div class="opt" onclick="so(this,15)" data-o="E"><div class="ol">E</div><div class="otxt">Pancreatite aguda por hipertrigliceridemia — a nutrição parenteral total pode elevar os triglicerídeos a níveis suficientes para desencadear pancreatite aguda, que se manifesta com febre e rigidez no andar superior do abdome em pacientes sob sedação.</div></div>
+</div>
+<button class="cbtn" onclick="ca(15,'B')" id="btn-15">Confirmar</button>
+<div class="fb" id="fb-15"></div>
+</div>
+<div class="qscore" id="sc-cole3">Colecistite: 0/5</div>
+</div>
+
+<!-- ========== PANCREATITE ========== -->
+<div id="b-pnc" class="qblock">
+
+<div class="qcard" id="qc-16">
+<div class="qhd"><div class="qn">16</div><div class="qstem">Um homem de 45 anos é atendido com dor epigástrica de início súbito há 5 horas após churrasco com bebida alcoólica. A dor irradia para o dorso em faixa, tem caráter contínuo e profundo, e o paciente descreve como "uma faca atravessando minhas costas". Está sentado, inclinado para frente, abraçando o tronco. Vomitou 5 vezes sem nenhum alívio da dor. Afebril. Ao exame: epigástrio doloroso à palpação profunda, rigidez leve; abdome levemente distendido. Murphy negativo. Anictérico.</div></div>
+<div class="qqst">Dois elementos deste quadro são a assinatura semiológica desta síndrome: a posição do paciente e o comportamento dos vômitos. Qual síndrome eles identificam e por quê?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,16)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda — dor epigástrica intensa após churrasco com irradiação para o dorso e vômitos sem alívio, com o paciente sentado e inclinado para frente, é apresentação típica da colecistite aguda, que pode ter dor irradiada para o dorso quando há comprometimento do ducto cístico posterior.</div></div>
+<div class="opt" onclick="so(this,16)" data-o="B"><div class="ol">B</div><div class="otxt">Pancreatite aguda — a posição "prece maometana" (sentado, inclinado para frente, abraçando o tronco) alivia a tração mesentérica sobre o pâncreas retroperitoneal e é posição antálgica característica da pancreatite. Os vômitos que não aliviam a dor ocorrem porque a dor é retroperitoneal e visceral profunda, não gerada por distensão de víscera oca — o conteúdo gástrico não influencia a origem da dor.</div></div>
+<div class="opt" onclick="so(this,16)" data-o="C"><div class="ol">C</div><div class="otxt">Cólica biliar — dor epigástrica intensa pós-prandial gordurosa com irradiação para o dorso (variante de irradiação para escápula direita), com vômitos sem alívio e posição antálgica, em homem que ingere álcool é cólica biliar, cujos vômitos não aliviam por haver componente de espasmo do esfíncter de Oddi associado.</div></div>
+<div class="opt" onclick="so(this,16)" data-o="D"><div class="ol">D</div><div class="otxt">Úlcera péptica perfurada — dor epigástrica de início súbito, tipo "faca", irradiação para o dorso com rigidez abdominal leve e vômitos sem alívio após ingestão alcoólica é o quadro clássico de perfuração de úlcera duodenal posterior.</div></div>
+<div class="opt" onclick="so(this,16)" data-o="E"><div class="ol">E</div><div class="otxt">Colangite aguda — dor em faixa epigástrica irradiando para o dorso com vômitos sem alívio e posição antálgica em paciente afebril indica colangite inicial antes de a febre se estabelecer; a posição sentada é a antálgica da colangite, onde o paciente fica prostrado.</div></div>
+</div>
+<button class="cbtn" onclick="ca(16,'B')" id="btn-16">Confirmar</button>
+<div class="fb" id="fb-16"></div>
+</div>
+
+<div class="qcard" id="qc-17">
+<div class="qhd"><div class="qn">17</div><div class="qstem">Uma mulher de 50 anos, obesa, com colelitíase documentada, é internada com pancreatite aguda. No 3° dia de internação, ao trocar o curativo abdominal para uma pequena escoriação, a equipe de enfermagem nota uma mancha azul-arroxeada ao redor do umbigo que não estava presente na admissão. A paciente está sob analgesia e não refere piora da dor.</div></div>
+<div class="qqst">Qual sinal semiológico é esse, qual é o mecanismo que o produz e o que ele indica sobre a evolução do quadro?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,17)" data-o="A"><div class="ol">A</div><div class="otxt">Sinal de Grey-Turner — equimose periumbilical causada pelo acúmulo de bilirrubina conjugada na gordura subcutânea periumbilical, indicando colestase obstrutiva grave com início de insuficiência hepática. Sugere pancreatite biliar com obstrução biliar concomitante.</div></div>
+<div class="opt" onclick="so(this,17)" data-o="B"><div class="ol">B</div><div class="otxt">Sinal de Cullen — equimose periumbilical produzida pela dissecção de hemorragia retroperitoneal (sangue de vasos peripancreáticos lesados pela elastase pancreática ativada) pelos planos fasciais até o subcutâneo periumbilical. Surge 48–72h após o início (sinal tardio, não inicial) e indica pancreatite hemorrágica/necrosante grave — red flag de mau prognóstico.</div></div>
+<div class="opt" onclick="so(this,17)" data-o="C"><div class="ol">C</div><div class="otxt">Sinal de Cullen — equimose periumbilical produzida pelo extravasamento de bile para o peritônio, que por sua toxicidade química lesa os vasos subcutâneos periumbilicais, gerando a equimose característica; indica pancreatite biliar com perfuração da via biliar.</div></div>
+<div class="opt" onclick="so(this,17)" data-o="D"><div class="ol">D</div><div class="otxt">Equimose por trauma de punção para cateter — mancha azul-arroxeada periumbilical em paciente internado com analgesia que não refere dor local é mais provável de ser equimose iatrogênica por tentativa de cateterização venosa do que sinal de pancreatite hemorrágica.</div></div>
+<div class="opt" onclick="so(this,17)" data-o="E"><div class="ol">E</div><div class="otxt">Sinal de Grey-Turner — equimose periumbilical por acúmulo de mediadores inflamatórios (IL-6, TNF-α) liberados pela necrose pancreática, que por via linfática peritoneal atingem o subcutâneo periumbilical e geram lesão vascular local com equimose; indica SIRS grave.</div></div>
+</div>
+<button class="cbtn" onclick="ca(17,'B')" id="btn-17">Confirmar</button>
+<div class="fb" id="fb-17"></div>
+</div>
+
+<div class="qcard" id="qc-18">
+<div class="qhd"><div class="qn">18</div><div class="qstem">Um homem de 39 anos, etilista crônico, chega trazido por familiares com dor epigástrica há 12 horas, irradiando para o dorso. Está sentado, curvado sobre si mesmo. Exame: abdome distendido, RHA muito diminuídos (1–2 por minuto), dor difusa à palpação, com leve defesa epigástrica. Sem Murphy. Afebril. Você nota que, ao deitar o paciente em decúbito dorsal para o exame, ele solicita imediatamente voltar à posição sentada pois "piora muito deitado".</div></div>
+<div class="qqst">A piora da dor no decúbito dorsal e a melhora na posição sentada inclinada para frente têm explicação fisiopatológica específica. Qual síndrome essa informação semiológica identifica?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,18)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda — a piora no decúbito dorsal na colecistite ocorre porque essa posição aumenta a pressão intra-abdominal sobre a vesícula inflamada; a posição sentada alivia ao descomprir o HCD pela gravidade, deslocando o conteúdo abdominal para baixo.</div></div>
+<div class="opt" onclick="so(this,18)" data-o="B"><div class="ol">B</div><div class="otxt">Pancreatite aguda — o pâncreas é retroperitoneal (T12–L2). No decúbito dorsal, a coluna vertebral comprime o pâncreas inflamado anteriormente, e o mesentério exerce tração sobre o tecido peripancreático, agravando a dor. Na posição sentada inclinada para frente (prece maometana), há redução da tração mesentérica e alívio da compressão posterior — mecanismo específico desta síndrome.</div></div>
+<div class="opt" onclick="so(this,18)" data-o="C"><div class="ol">C</div><div class="otxt">Cólica biliar intensa — episódio prolongado de cólica biliar com irradiação para o dorso em etilista crônico; a piora no decúbito resulta do aumento da pressão vesicular nessa posição, e a posição sentada alivia por favorecer a drenagem gravitacional da bile pelo cistico.</div></div>
+<div class="opt" onclick="so(this,18)" data-o="D"><div class="ol">D</div><div class="otxt">Colangite aguda — a piora no decúbito dorsal na colangite ocorre pelo aumento da pressão intraductal nessa posição, que agrava a translocação bacteriana; a posição sentada inclinada para frente é a posição antálgica da colangite, onde o paciente tende a ficar curvado.</div></div>
+<div class="opt" onclick="so(this,18)" data-o="E"><div class="ol">E</div><div class="otxt">Úlcera péptica sem perfuração — dor epigástrica que piora no decúbito dorsal e melhora na posição sentada é clássica da úlcera duodenal posterior, onde o suco gástrico regurgita para o duodeno com mais facilidade no decúbito, e a posição vertical permite melhor drenagem gástrica.</div></div>
+</div>
+<button class="cbtn" onclick="ca(18,'B')" id="btn-18">Confirmar</button>
+<div class="fb" id="fb-18"></div>
+</div>
+
+<div class="qcard" id="qc-19">
+<div class="qhd"><div class="qn">19</div><div class="qstem">Uma mulher de 47 anos é internada por pancreatite aguda. No 5° dia, a febre que havia cedido retorna (39,2°C), o abdome piora — fica mais distendido e doloroso difusamente — e ela desenvolve confusão mental leve. Nesse contexto, a equipe passa a mão sobre o abdome e percebe que os ruídos hidroaéreos, que estavam presentes ao 3° dia (lentos, 3–4/min), agora estão completamente ausentes mesmo após auscultar por 2 minutos.</div></div>
+<div class="qqst">O silêncio abdominal neste contexto clínico de piora é um achado semiológico de alarme. Qual complicação ele sinaliza e qual o mecanismo que o explica?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,19)" data-o="A"><div class="ol">A</div><div class="otxt">Obstrução mecânica do intestino delgado — o silêncio abdominal indica que uma alça do intestino delgado foi comprometida por aderências precoces do processo inflamatório pancreático, gerando obstrução mecânica com paralisia peristáltica secundária.</div></div>
+<div class="opt" onclick="so(this,19)" data-o="B"><div class="ol">B</div><div class="otxt">Pancreatite em resolução — a ausência de RHA ao 5° dia de pancreatite é o padrão normal de evolução, pois o íleo paralítico pós-pancreatite se resolve em 5–7 dias; a febre e a confusão são reativas ao processo inflamatório em fase de reabsorção.</div></div>
+<div class="opt" onclick="so(this,19)" data-o="C"><div class="ol">C</div><div class="otxt">Necrose pancreática infectada ou peritonite — a piora clínica (febre recorrente, dor difusa, confusão) com silêncio abdominal (íleo paralítico por irritação peritoneal generalizada) no 5° dia de pancreatite sinaliza complicação grave: necrose infectada ou peritonite pancreática. O silêncio abdominal indica que o peritônio está reagindo à inflamação difusa — a motilidade intestinal é inibida reflexamente pela irritação peritoneal.</div></div>
+<div class="opt" onclick="so(this,19)" data-o="D"><div class="ol">D</div><div class="otxt">Colangite aguda secundária — a febre recorrente com confusão e silêncio abdominal indicam que o cálculo original que causou a pancreatite está agora gerando infecção biliar ascendente; o íleo paralítico é a manifestação abdominal da bacteremia sistêmica biliar.</div></div>
+<div class="opt" onclick="so(this,19)" data-o="E"><div class="ol">E</div><div class="otxt">Pseudo-obstrução colônica aguda (síndrome de Ogilvie) — complicação bem conhecida de pancreatites graves, o cólon dilata-se sem obstrução mecânica, e o silêncio abdominal indica a ausência de peristaltismo colônico; a febre e a confusão resultam da isquemia da parede colônica distendida.</div></div>
+</div>
+<button class="cbtn" onclick="ca(19,'C')" id="btn-19">Confirmar</button>
+<div class="fb" id="fb-19"></div>
+</div>
+
+<div class="qcard" id="qc-20">
+<div class="qhd"><div class="qn">20</div><div class="qstem">Um homem de 55 anos chega ao PS com dor epigástrica em barra, irradiando para o dorso, há 7 horas. Está sentado inclinado para frente. Refere que a dor surgiu após almoço de churrasco com bebida alcoólica. Ao exame: epigástrio doloroso, Murphy negativo, anictérico, afebril. Um interno questiona se não poderia ser uma cólica biliar intensa, já que ambas ocorrem após gordura e podem irradiar para o dorso.</div></div>
+<div class="qqst">Quais elementos do quadro clínico distinguem especificamente pancreatite aguda de cólica biliar simples neste caso?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,20)" data-o="A"><div class="ol">A</div><div class="otxt">Os dois quadros são indistinguíveis clinicamente — tanto a cólica biliar quanto a pancreatite podem apresentar dor epigástrica irradiada para o dorso, posição antálgica, Murphy negativo e ser precipitadas por gordura. A diferença só pode ser estabelecida pelos exames laboratoriais (amilase e lipase).</div></div>
+<div class="opt" onclick="so(this,20)" data-o="B"><div class="ol">B</div><div class="otxt">O elemento diferencial principal é a febre — a pancreatite sempre cursa com febre desde o início, enquanto a cólica biliar é afebril; neste caso, a ausência de febre orienta para cólica biliar, e a dor em barra com irradiação dorsal é coincidência de irradiação atípica.</div></div>
+<div class="opt" onclick="so(this,20)" data-o="C"><div class="ol">C</div><div class="otxt">Na cólica biliar: dor em HCD/epigástrio irradiada para escápula/ombro direito, autolimitada (&lt;6h), paciente INQUIETO buscando posição, sem posição antálgica definida. Na pancreatite: dor epigástrica em FAIXA (cruzando hipocôndrios) irradiada para DORSO em faixa (T12–L1), contínua e não autolimitada, paciente em POSIÇÃO ANTÁLGICA definida (prece maometana), piora no decúbito dorsal — esses elementos clínicos permitem distinção, mesmo sem exames.</div></div>
+<div class="opt" onclick="so(this,20)" data-o="D"><div class="ol">D</div><div class="otxt">O elemento diferencial é a icterícia — a cólica biliar pode causar icterícia transitória se o cálculo impacta o colédoco brevemente, enquanto a pancreatite biliar não causa icterícia nas fases iniciais; a ausência de icterícia neste caso orienta para pancreatite.</div></div>
+<div class="opt" onclick="so(this,20)" data-o="E"><div class="ol">E</div><div class="otxt">O elemento diferencial é a qualidade da irradiação — a cólica biliar classicamente irradia para o ombro esquerdo, enquanto a pancreatite irradia para o ombro direito; a irradiação descrita "para o dorso" é mais compatível com cólica biliar com irradiação atípica.</div></div>
+</div>
+<button class="cbtn" onclick="ca(20,'C')" id="btn-20">Confirmar</button>
+<div class="fb" id="fb-20"></div>
+</div>
+<div class="qscore" id="sc-pnc">Pancreatite: 0/5</div>
+</div>
+
+<!-- ========== COLANGITE ========== -->
+<div id="b-col" class="qblock">
+
+<div class="qcard" id="qc-21">
+<div class="qhd"><div class="qn">21</div><div class="qstem">Um homem de 65 anos chega ao PS às 3h da madrugada em tremores violentos com batimento de dentes, temperatura de 39,8°C, com dor em HCD e icterícia que a esposa nota desde ontem. Está visivelmente doente. A esposa relata que há 3 dias ele teve uma crise de dor em HCD após jantar, que durou 4 horas e melhorou — acharam que era a "vesícula" de sempre. Ao exame: agitado, sudoreico, ictérico (verdínico 2+/4+), dor à palpação em HCD, sem Murphy definido.</div></div>
+<div class="qqst">A cronologia dos eventos — cólica biliar há 3 dias seguida de icterícia e calafrios intensos — conta uma história fisiopatológica específica. Qual síndrome esse quadro representa e o que os calafrios com tremores violentos indicam mecanisticamente?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,21)" data-o="A"><div class="ol">A</div><div class="otxt">Colecistite aguda grave — os calafrios intensos e a febre alta em paciente com colelitíase conhecida e crise biliar prévia indicam colecistite evoluindo para empiema vesicular com resposta inflamatória sistêmica; a icterícia resulta da inflamação difusa que comprime o ducto hepático por edema.</div></div>
+<div class="opt" onclick="so(this,21)" data-o="B"><div class="ol">B</div><div class="otxt">Colangite aguda — a cólica biliar há 3 dias representa o momento em que o cálculo migrou da vesícula para o colédoco e impactou; a estase biliar no colédoco permitiu a colonização bacteriana ascendente. Os calafrios com tremores violentos (batimento de dentes) são a assinatura semiológica da bacteremia: liberação súbita de bactérias/endotoxinas na circulação → ativação do complemento + citocinas pirogênicas → pico febril + tremores. Tríade de Charcot: dor HCD + febre com calafrios + icterícia.</div></div>
+<div class="opt" onclick="so(this,21)" data-o="C"><div class="ol">C</div><div class="otxt">Pancreatite biliar grave — cálculo migrou para a ampola de Vater há 3 dias (cólica biliar), gerando pancreatite que só agora manifesta seus achados sistêmicos (febre, calafrios, icterícia); o longo período assintomático entre a cólica e a apresentação atual é compatível com pancreatite de progressão lenta.</div></div>
+<div class="opt" onclick="so(this,21)" data-o="D"><div class="ol">D</div><div class="otxt">Coledocolitíase com colestase simples — o cálculo migrado para o colédoco gerou apenas colestase obstrutiva (icterícia, colúria); a febre com calafrios é reação pirogênica à hiperbilirrubinemia, que tem efeito febril direto quando BD supera 8–10 mg/dL.</div></div>
+<div class="opt" onclick="so(this,21)" data-o="E"><div class="ol">E</div><div class="otxt">Hepatite aguda — a icterícia de instalação progressiva com febre alta e calafrios em portador de colelitíase sugere hepatite viral aguda desencadeada pelo estresse metabólico da cólica biliar; os calafrios são manifestação da viremia inicial da hepatite.</div></div>
+</div>
+<button class="cbtn" onclick="ca(21,'B')" id="btn-21">Confirmar</button>
+<div class="fb" id="fb-21"></div>
+</div>
+
+<div class="qcard" id="qc-22">
+<div class="qhd"><div class="qn">22</div><div class="qstem">Uma mulher de 78 anos é trazida por familiares "meio confusa desde ontem". A família relata que ela tinha febre há 2 dias e "olho amarelo". Ao exame: PA 80×50 mmHg, FC 118 bpm, temperatura 39,4°C, confusa (não sabe onde está), ictérica 3+/4+, dor à palpação em HCD. Família confirma dor abdominal há 3 dias que ela "reclamava" mas não procurou atendimento.</div></div>
+<div class="qqst">Cinco elementos estão presentes neste quadro. Nomeie a síndrome clínica que eles compõem e qual a importância prognóstica desta apresentação.</div>
+<div class="opts">
+<div class="opt" onclick="so(this,22)" data-o="A"><div class="ol">A</div><div class="otxt">Tríade de Charcot — dor em HCD + febre + icterícia em idosa com história de 3 dias caracteriza colangite aguda moderada; a confusão e a hipotensão são sintomas adicionais decorrentes da desidratação grave pela febre prolongada em idosa, sem indicar comprometimento orgânico por sepse.</div></div>
+<div class="opt" onclick="so(this,22)" data-o="B"><div class="ol">B</div><div class="otxt">Pêntade de Reynolds — dor em HCD + febre + icterícia + hipotensão + alteração do estado mental = colangite tóxica supurativa (Grau III). É emergência tempo-dependente com mortalidade elevada sem descompressão biliar urgente. Os 5 elementos são: (1) dor HCD, (2) febre, (3) icterícia, (4) hipotensão (choque séptico), (5) confusão mental (encefalopatia séptica). O tratamento é simultâneo: ressuscitação + antibiótico + descompressão biliar urgente (CPRE ou drenagem).</div></div>
+<div class="opt" onclick="so(this,22)" data-o="C"><div class="ol">C</div><div class="otxt">Pêntade de Reynolds — porém, a descompressão biliar deve aguardar a estabilização hemodinâmica completa (48–72h de UTI), pois a CPRE em paciente hipotenso é tecnicamente impraticável e tem mortalidade proibitiva nessa condição.</div></div>
+<div class="opt" onclick="so(this,22)" data-o="D"><div class="ol">D</div><div class="otxt">Encefalopatia hepática por colestase grave — a confusão mental em idosa ictérica com febre resulta da neurotoxicidade da bilirrubina direta acumulada, que em concentrações muito elevadas atravessa a barreira hematoencefálica gerando encefalopatia bilirrubínica.</div></div>
+<div class="opt" onclick="so(this,22)" data-o="E"><div class="ol">E</div><div class="otxt">Sepse de origem biliar com síndrome de resposta inflamatória sistêmica — os achados são compatíveis com SIRS por colecistite grave perfurada, que gera peritonite biliar difusa com repercussão hemodinâmica e neurológica; a icterícia é de origem hepatocelular pela sepse.</div></div>
+</div>
+<button class="cbtn" onclick="ca(22,'B')" id="btn-22">Confirmar</button>
+<div class="fb" id="fb-22"></div>
+</div>
+
+<div class="qcard" id="qc-23">
+<div class="qhd"><div class="qn">23</div><div class="qstem">Três pacientes chegam ao PS com febre e dor em HCD. Paciente A: febre 38,4°C, Murphy positivo, anictérico, calafrios discretos. Paciente B: febre 39,6°C com tremores violentos, icterícia 2+/4+, dor em HCD difusa, sem Murphy definido, PA normal. Paciente C: febre 40°C com calafrios, icterícia 3+/4+, PA 80×60 mmHg, confusão mental.</div></div>
+<div class="qqst">Identifique o diagnóstico de cada paciente com base exclusivamente nos achados do exame físico e na anamnese:</div>
+<div class="opts">
+<div class="opt" onclick="so(this,23)" data-o="A"><div class="ol">A</div><div class="otxt">Paciente A: colangite leve (Tríade de Charcot incompleta). Paciente B: colecistite aguda (febre + HCD). Paciente C: pancreatite grave (febre alta + confusão). Todos têm patologia biliar, mas os diagnósticos diferem pela intensidade dos sintomas, não pela síndrome.</div></div>
+<div class="opt" onclick="so(this,23)" data-o="B"><div class="ol">B</div><div class="otxt">Paciente A: colecistite aguda (febre + Murphy positivo + sem icterícia = obstrução do ducto cístico com inflamação vesicular isolada). Paciente B: colangite aguda moderada (Tríade de Charcot: febre com calafrios + icterícia + dor HCD = obstrução do colédoco com bacteremia). Paciente C: colangite grave — Pêntade de Reynolds (febre + icterícia + dor HCD + hipotensão + confusão = choque séptico de origem biliar). O nível da obstrução e a presença de bacteremia são os divisores entre os três quadros.</div></div>
+<div class="opt" onclick="so(this,23)" data-o="C"><div class="ol">C</div><div class="otxt">Paciente A: colangite leve (Grau I). Paciente B: colangite moderada (Grau II). Paciente C: colecistite gangrenosa perfurada com peritonite biliar. O Murphy positivo em A é atípico da colangite mas pode ocorrer quando há colecistite associada.</div></div>
+<div class="opt" onclick="so(this,23)" data-o="D"><div class="ol">D</div><div class="otxt">Os três têm colecistite em estágios diferentes — A em fase inicial, B em fase inflamatória com colestase obstrutiva concomitante e C em fase de perfuração com choque. Murphy positivo em A confirma a fase inicial; a ausência de Murphy em B e C indica que a vesícula já perfurou, perdendo a tensão parietal necessária para o sinal.</div></div>
+<div class="opt" onclick="so(this,23)" data-o="E"><div class="ol">E</div><div class="otxt">Paciente A: pancreatite leve (Murphy positivo indica acometimento da cabeça pancreática). Paciente B: colangite moderada (Tríade de Charcot). Paciente C: colangite grave (Pêntade de Reynolds). A diferença entre A e B é o Murphy, que na pancreatite pode ser positivo quando a cabeça do pâncreas comprime a vesícula por contiguidade.</div></div>
+</div>
+<button class="cbtn" onclick="ca(23,'B')" id="btn-23">Confirmar</button>
+<div class="fb" id="fb-23"></div>
+</div>
+
+<div class="qcard" id="qc-24">
+<div class="qhd"><div class="qn">24</div><div class="qstem">Um paciente de 60 anos relata que há 4 dias teve febre com calafrios, ficou "amarelo" e teve dor em HCD. Foi medicado em UPA com dipirona e um antibiótico oral e melhorou parcialmente. Hoje refere que a febre voltou (38,8°C), que está "mais amarelo" e com dor em HCD persistente. Ao exame: ictérico 2+, calafrios presentes, taquicárdico (104 bpm), dor em HCD, sem Murphy. PA 110×70 mmHg. Estado mental preservado.</div></div>
+<div class="qqst">A recorrência dos sintomas após melhora parcial com antibiótico oral conta qual história fisiopatológica, e qual é o erro de conduta que ela expõe?</div>
+<div class="opts">
+<div class="opt" onclick="so(this,24)" data-o="A"><div class="ol">A</div><div class="otxt">Colangite aguda com resistência bacteriana ao antibiótico utilizado — a recorrência indica que o agente etiológico não foi coberto adequadamente; a conduta correta é escalar o antibiótico para cobertura de gram-negativos e anaeróbios resistentes.</div></div>
+<div class="opt" onclick="so(this,24)" data-o="B"><div class="ol">B</div><div class="otxt">Colangite aguda com obstrução biliar não tratada — antibióticos controlam a infecção temporariamente, mas NÃO eliminam a obstrução biliar que a causa. Com o cálculo ainda no colédoco, a estase e a bacteriobilia persistem → recidiva inevitável ao suspender o antibiótico. O erro da UPA foi tratar apenas a infecção sem tratar a causa: a obstrução mecânica. O tratamento definitivo é a descompressão biliar (CPRE).</div></div>
+<div class="opt" onclick="so(this,24)" data-o="C"><div class="ol">C</div><div class="otxt">Colecistite aguda recidivante — episódios de dor em HCD com febre e icterícia que melhoram parcialmente e recorrem são compatíveis com colecistite crônica agudizada; o antibiótico oral controla a inflamação mas a vesícula doente gera nova crise ao suspender a medicação.</div></div>
+<div class="opt" onclick="so(this,24)" data-o="D"><div class="ol">D</div><div class="otxt">Hepatite aguda medicamentosa — o antibiótico utilizado na UPA gerou hepatotoxicidade com icterícia progressiva e febre por hipersensibilidade; a melhora parcial e a recorrência com intensificação da icterícia são o padrão da hepatite medicamentosa bifásica.</div></div>
+<div class="opt" onclick="so(this,24)" data-o="E"><div class="ol">E</div><div class="otxt">Abscesso hepático em formação — a infecção biliar inicial não drenada adequadamente evoluiu para abscesso hepático que se apresenta com febre recorrente, icterícia e dor em HCD; a melhora com antibiótico e recorrência após suspensão são o padrão do abscesso hepático não drenado.</div></div>
+</div>
+<button class="cbtn" onclick="ca(24,'B')" id="btn-24">Confirmar</button>
+<div class="fb" id="fb-24"></div>
+</div>
+
+<div class="qcard" id="qc-25">
+<div class="qhd"><div class="qn">25</div><div class="qstem">Você atende quatro pacientes com dor em HCD e precisa identificar rapidamente o diagnóstico de cada um pela anamnese e exame físico, antes de qualquer exame complementar: (A) Mulher, 42 anos, dor 2h, pós-prandial, irradia escápula D, afebril, anictérica, Murphy negativo, melhora espontânea após 2h. (B) Homem, 58 anos, dor 10h, febre 38,4°C, Murphy positivo, anictérico, imóvel. (C) Mulher, 67 anos, icterícia 2+, prurido, fezes claras, urina escura, sem dor significativa, vesícula palpável indolor. (D) Homem, 49 anos, febre 39,8°C + calafrios violentos + icterícia 2+ + dor HCD + PA 90×60 mmHg + confusão.</div></div>
+<div class="qqst">Associe corretamente cada paciente à síndrome correspondente usando exclusivamente os dados semiológicos e clínicos apresentados:</div>
+<div class="opts">
+<div class="opt" onclick="so(this,25)" data-o="A"><div class="ol">A</div><div class="otxt">(A) Colecistite aguda; (B) Cólica biliar; (C) Pancreatite aguda; (D) Colangite com Tríade de Charcot — a febre em A indica colecistite, a ausência de febre em B indica cólica, a vesícula palpável em C indica pancreatite e o quadro sistêmico em D indica colangite moderada.</div></div>
+<div class="opt" onclick="so(this,25)" data-o="B"><div class="ol">B</div><div class="otxt">(A) Cólica biliar [dor visceral autolimitada, pós-prandial, afebril, Murphy negativo]; (B) Colecistite aguda [dor &gt;6h, febre, Murphy positivo, imóvel]; (C) Colestase obstrutiva com Sinal de Courvoisier-Terrier [icterícia verdínica + prurido + colúria + hipocolia + vesícula palpável INDOLOR = neoplasia periampular]; (D) Pêntade de Reynolds — colangite tóxica supurativa [febre + calafrios + icterícia + hipotensão + confusão = emergência].</div></div>
+<div class="opt" onclick="so(this,25)" data-o="C"><div class="ol">C</div><div class="otxt">(A) Cólica biliar; (B) Colangite leve (Tríade de Charcot incompleta — Murphy positivo + febre, sem icterícia); (C) Colestase com Courvoisier-Terrier; (D) Pêntade de Reynolds. O paciente B tem Murphy positivo que, por ser variável na colangite, pode estar presente, tornando a diferenciação com colecistite impossível sem exames.</div></div>
+<div class="opt" onclick="so(this,25)" data-o="D"><div class="ol">D</div><div class="otxt">(A) Colestase transitória; (B) Colecistite; (C) Colelitíase assintomática com vesícula palpável por hidropisia; (D) Colangite com Tríade de Charcot completa — a hipotensão e confusão são achados secundários à desidratação pela febre prolongada, sem indicar Pêntade de Reynolds que exigiria choque séptico documentado.</div></div>
+<div class="opt" onclick="so(this,25)" data-o="E"><div class="ol">E</div><div class="otxt">(A) Cólica biliar; (B) Colecistite; (C) Hepatite colestática crônica (prurido + icterícia + sem dor); (D) Colangite grave. O Sinal de Courvoisier-Terrier em C exige confirmação por imagem antes de ser valorizado, pois vesícula palpável pode ocorrer em diversas condições benignas como hidropisia por colelitíase.</div></div>
+</div>
+<button class="cbtn" onclick="ca(25,'B')" id="btn-25">Confirmar</button>
+<div class="fb" id="fb-25"></div>
+</div>
+<div class="qscore" id="sc-col">Colangite: 0/5</div>
+</div>
+
+<div id="total-panel">
+<span class="tscore" id="tscore">0/25</span>
+<p class="tslbl">questões corretas no total</p>
+<p class="tsmsg" id="tsmsg"></p>
+<button class="rbtn" onclick="resetAll()">↺ Reiniciar simulado completo</button>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+  <span class="fn">Kyra Barreneche</span>
+  <span>Semiologia I · Síndromes Hepatobiliares · CENSUPEG · Joinville / SC · 2026</span>
+  <span class="fq">"O paciente não espera que você se lembre. Ele espera que você raciocine." — Prof. Dr. João Vitor Galo Esteves</span>
+</footer>
+<script>
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('pb').style.width = pct + '%';
+});
+function toggleAcc(h) { h.parentElement.classList.toggle('open'); }
+function showBlock(id, tab) {
+  document.querySelectorAll('.qblock').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.qtab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('show');
+  tab.classList.add('active');
+}
+
+const state = { answers:{}, answered:{}, totCorrect:0, totAnswered:0 };
+const sections = { cole:[1,2,3,4,5], cole2:[6,7,8,9,10], cole3:[11,12,13,14,15], pnc:[16,17,18,19,20], col:[21,22,23,24,25] };
+const secScores = { cole:0, cole2:0, cole3:0, pnc:0, col:0 };
+const secNames = { cole:'Colelitíase', cole2:'Colestase', cole3:'Colecistite', pnc:'Pancreatite', col:'Colangite' };
+
+function getSec(q) {
+  for (const [s,qs] of Object.entries(sections)) if (qs.includes(q)) return s;
+}
+function so(el, q) {
+  if (state.answered[q]) return;
+  el.closest('.opts').querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  state.answers[q] = el.dataset.o;
+  document.getElementById('btn-' + q).disabled = false;
+}
+
+const FB = {
+  1:{ B:'<span class="fbl">✓ Correto</span>Este é o padrão perfeito da <strong>cólica biliar</strong>: dor visceral pós-prandial gordurosa em HCD, irradiada para ombro/escápula D, autolimitada (&lt;6h), afebril, anictérica, Murphy negativo entre os episódios. A irradiação para o ombro direito ocorre por irritação do nervo frênico (C3–C5) pela vesícula distendida adjacente ao diafragma. A alternativa A erra pois colecistite teria Murphy positivo + febre + duração &gt;6h. A alternativa D erra pois na pancreatite a dor é em barra epigástrica irradiada para o DORSO, não para o ombro.', W:'<span class="fbl">✗ Incorreto</span>O padrão da cólica biliar (B) é: dor visceral pós-prandial gordurosa em HCD, irradiação para ombro/escápula D, autolimitada (&lt;6h), afebril, anictérica, Murphy negativo. A colecistite (A) teria Murphy positivo + febre + duração &gt;6h + imobilidade. A dispepsia (C) não tem irradiação específica nem padrão temporal preciso.' },
+  2:{ C:'<span class="fbl">✓ Correto</span>A <strong>inquietação</strong> é a assinatura semiológica da dor visceral pura: sem componente peritoneal (a serosa não está inflamada), o paciente busca posição sem encontrá-la — típico da cólica biliar. Compare com a colecistite (B), onde o paciente fica IMÓVEL para evitar movimento que agrava a dor peritoneal. A irradiação para escápula D, a autolimitação e o Murphy negativo confirmam cólica biliar. A cólica renal (E) irradia para flancos/região inguinal/genital, não para escápula.', W:'<span class="fbl">✗ Incorreto</span>A inquietação (agitação, busca por posição) é a assinatura da dor <em>visceral pura</em> — sem peritonite, o paciente se move livremente buscando alívio. Na colecistite (A), o paciente fica IMÓVEL (peritonite parietal). Na pancreatite (B), o paciente adota posição antálgica <em>definida</em> (prece maometana), não fica inquieto sem posição. O padrão completo é de cólica biliar (C).' },
+  3:{ C:'<span class="fbl">✓ Correto</span>Armadilha clássica que o Prof. Esteves enfatiza: <strong>dispepsia, flatulência e distensão abdominal NÃO são manifestações específicas da colelitíase</strong>. A única manifestação validada é a cólica biliar. Atribuir sintomas inespecíficos à litíase é "erro clínico e cognitivo frequente". Sem cólica biliar documentada, o exame físico normal (Murphy negativo, sem dor à palpação) e a ausência de sintomas específicos fazem a colelitíase "silente" neste caso, e os sintomas têm outra etiologia.', W:'<span class="fbl">✗ Incorreto</span>O erro é atribuir dispepsia e flatulência à colelitíase (C). O Prof. Esteves é enfático: "Dispepsia e flatulência NÃO são sintomas específicos de colelitíase. Nem toda dor abdominal em paciente com cálculo é causada pelo cálculo." Sem cólica biliar documentada + exame físico normal + Murphy negativo = sintomas inespecíficos de outra etiologia. Operar esse quadro não resolve os sintomas.' },
+  4:{ B:'<span class="fbl">✓ Correto</span>A gestação favorece a litíase por dois mecanismos hormonais precisos: (1) <strong>Progesterona</strong> → relaxa o músculo liso → hipomotilidade vesicular → estase → nucleação e crescimento do cálculo; (2) <strong>Estrogênio</strong> → ↑ síntese/secreção biliar de colesterol → supersaturação da bile. O quadro é cólica biliar clássica: pós-prandial gorduroso, autolimitada, irradiação para ombro D, afebril, Murphy negativo, com episódio idêntico pré-gestacional. Colestase intra-hepática da gravidez (C) teria prurido e icterícia, não apenas dor.', W:'<span class="fbl">✗ Incorreto</span>A alternativa B é correta. A gestação favorece a litíase por: progesterona → hipomotilidade vesicular (estase) + estrogênio → hipersecreção de colesterol. O quadro é cólica biliar: pós-prandial gorduroso, autolimitado, sem febre, Murphy negativo. A colecistite (A) teria Murphy positivo + febre + duração &gt;6h. A colestase da gravidez (C) teria prurido + icterícia, ausentes aqui.' },
+  5:{ B:'<span class="fbl">✓ Correto</span>A postura é dado semiológico fundamental. <strong>Inquietação (busca posição)</strong> = dor visceral pura = nenhuma inflamação peritoneal = cólica biliar. <strong>Imobilidade (evita movimento)</strong> = dor parietal = serosa vesicular inflamada contactando peritônio parietal = colecistite. O Murphy positivo no paciente B confirma a vesícula inflamada. Duração &gt;6h + febre + Murphy + imobilidade = colecistite. Duração &lt;6h + afebril + Murphy negativo + inquietação = cólica biliar. São os <em>dois extremos do mesmo espectro fisiopatológico</em>: obstrução reversível vs. impactação persistente.', W:'<span class="fbl">✗ Incorreto</span>A postura diferencia dor visceral (inquietação = cólica, A) de dor parietal peritoneal (imobilidade = colecistite, B). Ambos têm colelitíase e dor após churrasco, mas o tempo (&lt;6h vs. &gt;8h), a febre (ausente vs. presente) e o Murphy (negativo vs. positivo) mostram que são síndromes distintas com fisiopatologia distinta: obstrução transitória (cólica) vs. impactação persistente → inflamação (colecistite).' },
+  6:{ D:'<span class="fbl">✓ Correto</span><strong>Sinal de Courvoisier-Terrier</strong>: vesícula palpável e INDOLOR em paciente ictérica = obstrução biliar de causa não litiásica → neoplasia periampular até prova em contrário. A lei de Courvoisier: vesícula com colelitíase crônica tem parede fibrosada e não distende. Vesícula sem litíase prévia + obstrução lenta e progressiva por neoplasia → distende silenciosamente. Icterícia verdínica + prurido noturno + colúria + hipocolia + perda de 6 kg + vesícula palpável indolor = síndrome colestática de etiologia neoplásica.', W:'<span class="fbl">✗ Incorreto</span>O Sinal de Courvoisier-Terrier (D) é a resposta. Vesícula palpável INDOLOR em ictérica = obstrução neoplásica (lei de Courvoisier: sem litíase prévia → sem fibrose → distende). A colangite (C) teria febre com calafrios, ausente aqui. A hepatite (B) não gera vesícula palpável. A colelitíase com colestase transitória (E) geraria icterícia flutuante com dor, não progressiva e indolor com perda de 8 kg.' },
+  7:{ B:'<span class="fbl">✓ Correto</span>A sequência temporal é a chave: cólica biliar (impactação do cálculo no ducto cístico) → migração do cálculo para o colédoco → obstrução do colédoco → colestase progressiva → icterícia + colúria + hipocolia. A "cólica biliar prévia há 1 semana" representa o momento da migração. Uma vez no colédoco e impactado, o cálculo bloqueia o fluxo biliar → acúmulo progressivo de BD. A sequência "cólica → icterícia dias depois" é a assinatura da migração para a via biliar.', W:'<span class="fbl">✗ Incorreto</span>A sequência cólica biliar → icterícia dias depois (B) é a assinatura da migração do cálculo para o colédoco. A cólica biliar representa o momento da migração; a icterícia progressiva confirma a impactação no colédoco com colestase. Hepatite viral (A) não teria episódio doloroso prévio precipitante. Hepatite medicamentosa (E) exigiria uso de hepatotóxico. Mirizzi (C) teria Murphy positivo com colecistite concomitante.' },
+  8:{ B:'<span class="fbl">✓ Correto</span>O prurido colestático tem mecanismo preciso: acúmulo de sais biliares + mediadores pruritogênicos (lisofosfolipídios, endocanabinoides, substâncias opióides endógenas) na pele, que excitam terminais nervosos cutâneos. O <strong>predomínio noturno</strong> é característico. As <strong>escoriações no dorso e braços</strong> são a evidência física do prurido — "as escoriações são a pegada do prurido" (Prof. Esteves). Tríade: prurido + colúria + hipocolia = síndrome colestática mesmo antes do laboratório.', W:'<span class="fbl">✗ Incorreto</span>O prurido colestático (B) resulta do acúmulo de sais biliares + mediadores pruritogênicos na pele por falha na excreção biliar. As escoriações são sinal físico que revela o prurido — "quem examina o dorso encontra a história sem precisar perguntar" (Prof. Esteves). A colangite (A) teria febre com calafrios + icterícia + dor HCD. A colecistite (C) não gera prurido. A hemólise (D) gera icterícia flavínica (amarelo-pálida), não prurido intenso com escoriações.' },
+  9:{ B:'<span class="fbl">✓ Correto</span>Sequência correta de avaliação da icterícia: <strong>escleróticas</strong> (com pálpebra tracionada) → mucosa sublingual → frênulo → palato duro → pele. As escleróticas são o local mais precoce e sensível pois a elastina tem alta afinidade pela bilirrubina. <strong>Tonalidade verdínica</strong> (amarelo-esverdeada) = colestase: a bilirrubina direta acumulada cronicamente sofre oxidação a biliverdina. A luz fluorescente fria emite espectro frio que empalidece tons amarelados — ictérias leves só ficam evidentes sob luz natural.', W:'<span class="fbl">✗ Incorreto</span>A sequência correta (B) inicia pelas escleróticas (não pela pele — alternativas A e C). A tonalidade verdínica indica colestase (bilirrubina direta + oxidação a biliverdina), não hemólise (A erra) nem hepatite (A erra a tonalidade). A luz fluorescente MASCARA, não amplifica a icterícia (E erra). A GGT não tem cor verde e não pigmenta a pele (E erra). Em pele negra, as escleróticas e o frênulo são ainda mais fundamentais.' },
+  10:{ C:'<span class="fbl">✓ Correto</span><strong>Sinal de Courvoisier-Terrier</strong>: massa palpável em HCD, lisa, tensa, INDOLOR em ictérico com síndrome colestática completa (verdínica + prurido + colúria + hipocolia) e emagrecimento. Fisiopatologia: vesícula previamente sem litíase (sem fibrose da parede) + obstrução lenta e progressiva por neoplasia periampular → distensão gradual e indolor. Se fosse colelitíase crônica prévia → parede fibrosada → não distende. A lei de Courvoisier explica por que a vesícula palpável indolor em ictérico = neoplasia até prova em contrário.', W:'<span class="fbl">✗ Incorreto</span>O Sinal de Courvoisier-Terrier (C) é a resposta. Vesícula palpável INDOLOR + icterícia verdínica progressiva + perda de peso + prurido = obstrução neoplásica periampular. Murphy (A) seria positivo em colecistite inflamada, não nesta vesícula silenciosa. Hepatomegalia (B) é lobo hepático, não vesícula palpável na linha hemiclavicular. A hidropisia por coledocolitíase (E) teria dor e geralmente história biliar prévia com cálculos.' },
+  11:{ C:'<span class="fbl">✓ Correto</span><strong>Sinal de Murphy positivo</strong>: interrupção abrupta da inspiração pela dor ao encontro da vesícula inflamada com os dedos do examinador. Mecanismo: durante a inspiração, o diafragma desce → fígado e vesícula descem em direção à mão → vesícula inflamada toca os dedos → dor interrompe o fôlego ("inspiratory arrest"). Distingue-se da cólica biliar por: duração &gt;6h (impactação persistente, não reversível), febre (inflamação estabelecida), imobilidade na maca (dor parietal, não visceral) e Murphy positivo.', W:'<span class="fbl">✗ Incorreto</span>O sinal descrito (interrupção abrupta da inspiração) é o Sinal de Murphy positivo, que indica colecistite aguda (C). A cólica biliar (A) tem Murphy negativo e duração &lt;6h. A colangite (B) teria calafrios intensos + icterícia + sem Murphy definido (dor mais difusa). A pancreatite (D) teria dor em barra irradiando para dorso + posição antálgica (prece maometana) + vômitos sem alívio — sem Murphy.' },
+  12:{ B:'<span class="fbl">✓ Correto</span>Murphy negativo em idoso diabético NÃO exclui colecistite. Em diabéticos, a neuropatia autonômica reduz a percepção álgica visceral → ausência da pausa inspiratória mesmo com inflamação vesicular franca. O Prof. Esteves é explícito: "Sinal de Murphy negativo em idoso, diabético ou imunossuprimido com dor em HCD e febre NÃO afasta colecistite. Manter alta suspeição clínica." O conjunto dor &gt;6h + febre + taquicardia + HCD em diabético idoso obriga a investigar colecistite independentemente do Murphy.', W:'<span class="fbl">✗ Incorreto</span>Murphy negativo NÃO exclui colecistite em idosos diabéticos (B). A neuropatia autonômica reduz o limiar álgico → sem pausa inspiratória mesmo com inflamação. A A erra ao dizer que Murphy negativo exclui colecistite. A C confunde mecanismo com diagnóstico. A D erra ao priorizar SCA sem qualquer dado cardíaco; SCA sempre é um diferencial em idosos, mas não é o diagnóstico mais provável com o contexto descrito.' },
+  13:{ B:'<span class="fbl">✓ Correto</span><strong>Síndrome de Mirizzi</strong>: cálculo impactado no infundíbulo/colo vesicular → compressão extrínseca do ducto hepático comum → colecistite (Murphy positivo) + icterícia obstrutiva sem cálculo no colédoco. Distingue-se da coledocolitíase simples porque: (1) a obstrução é extrínseca (por compressão), não intraluminal; (2) a vesícula está inflamada (Murphy positivo, dor HCD, febre). Na coledocolitíase simples, a vesícula não está necessariamente inflamada e o Murphy seria negativo.', W:'<span class="fbl">✗ Incorreto</span>Mirizzi (B) é a resposta. Murphy positivo (colecistite, cálculo impactado no colo/infundíbulo) + icterícia = obstrução extrínseca do ducto hepático pelo cálculo. Distingue da coledocolitíase simples (D) pelo Murphy positivo (vesícula inflamada em Mirizzi) e pela icterícia sem cálculo intraluminal no colédoco. A alternativa A erra ao afirmar que toda icterícia em colecistite = migração para colédoco, ignorando a Síndrome de Mirizzi.' },
+  14:{ C:'<span class="fbl">✓ Correto</span>Erro semiológico grave: o interno confundiu <strong>Murphy com Blumberg</strong>. <strong>Murphy</strong> = interrupção abrupta da inspiração profunda pela dor ao encontro da vesícula com os dedos do examinador ("inspiratory arrest"). <strong>Blumberg</strong> = descompressão dolorosa (peritonite). São mecanismos completamente diferentes: Murphy exige inspiração profunda como componente ativo da manobra; Blumberg não envolve respiração. O interno realizou o Blumberg em HCD e nomeou como Murphy — erro que demonstra não compreender o mecanismo de nenhum dos dois.', W:'<span class="fbl">✗ Incorreto</span>O erro conceitual central (C) é confundir Murphy com Blumberg. Murphy = interrupção da inspiração profunda pela dor (mecanismo inspiratório ativo). Blumberg = descompressão dolorosa (mecanismo de peritonite). Não há erro de localização (D é incorreto: o Murphy é no ponto cístico, abaixo do rebordo costal D, na LHC — não no epigástrio). Não há erro de posição (E é incorreto: decúbito dorsal é a posição padrão).' },
+  15:{ B:'<span class="fbl">✓ Correto</span><strong>Colecistite alitiásica</strong>: contexto clínico é o diagnóstico — não o exame físico isolado. Tríade de risco: (1) jejum prolongado → ausência de CCK → hipomotilidade vesicular → estase biliar; (2) nutrição parenteral total → mesma hipomotilidade; (3) hipoperfusão esplâncnica (sepse + pneumonia grave) → isquemia mural vesicular. Sem cálculos, sem história biliar prévia, mas com o contexto do paciente crítico. É forma mais grave que a calculosa e mais difícil de diagnosticar — o exame físico é limitado pela sedação.', W:'<span class="fbl">✗ Incorreto</span>Colecistite alitiásica (B) é o diagnóstico correto. O raciocínio é pelo contexto clínico: jejum prolongado + NPT (hipomotilidade vesicular) + sepse/hipoperfusão esplâncnica (isquemia mural) = tríade de risco para inflamação vesicular sem cálculos. A A (calculosa) é possível mas menos provável — sem história biliar prévia. O abscesso hepático (C) teria imagem específica. Pancreatite por hipertrigliceridemia (E) exigiria triglicerídeos muito elevados documentados.' },
+  16:{ B:'<span class="fbl">✓ Correto</span>Dois elementos são a assinatura da pancreatite aguda: (1) <strong>Posição antálgica "prece maometana"</strong>: sentado, inclinado para frente, abraçando o tronco — reduz a tração mesentérica sobre o pâncreas retroperitoneal e alivia a compressão posterior pela coluna. (2) <strong>Vômitos que NÃO aliviam a dor</strong>: porque a dor é retroperitoneal e visceral profunda — não gerada por distensão de víscera oca. O conteúdo gástrico não influencia a fonte da dor. Compare: na cólica biliar/renal, o vômito pode aliviar (reduz pressão luminal da víscera obstruída).', W:'<span class="fbl">✗ Incorreto</span>Pancreatite aguda (B): dois marcadores semiológicos exclusivos: posição antálgica definida (prece maometana) + vômitos sem alívio (dor retroperitoneal, não de víscera oca). Na colecistite (A), o paciente fica IMÓVEL (sem posição antálgica definida). Na cólica biliar (C), o paciente fica INQUIETO e os vômitos podem aliviar discretamente. A irradiação para DORSO em FAIXA (T12–L1) é característica da pancreatite; na cólica biliar, a irradiação é para ombro/escápula D.' },
+  17:{ B:'<span class="fbl">✓ Correto</span><strong>Sinal de Cullen</strong> = equimose periumbilical. Mecanismo: enzimas pancreáticas ativadas (elastase + fosfolipase A2) lesam vasos peripancreáticos → hemorragia retroperitoneal → sangue disseca pelos planos fasciais retroperitoneais → atinge subcutâneo periumbilical → equimose azul-arroxeada. <strong>Surge 48–72h após o início</strong> (sinal tardio, não inicial — não confundir). Indica pancreatite hemorrágica/necrosante grave. <strong>Sinal de Grey-Turner</strong> = equimose nos FLANCOS (mesmo mecanismo, localização diferente).', W:'<span class="fbl">✗ Incorreto</span>Equimose periumbilical = Sinal de Cullen (B). Equimose nos flancos = Sinal de Grey-Turner. A alternativa A inverte os nomes. O mecanismo correto: hemorragia retroperitoneal por lesão vascular pancreática → dissecção pelos planos fasciais → subcutâneo periumbilical (Cullen) ou flancos (Grey-Turner). NÃO é acúmulo de bilirrubina (C), NÃO é trauma de cateter (D), NÃO é por mediadores inflamatórios linfáticos (E).' },
+  18:{ B:'<span class="fbl">✓ Correto</span><strong>Piora no decúbito dorsal + melhora na posição antálgica = assinatura semiológica da pancreatite</strong>. Mecanismo: pâncreas é retroperitoneal (T12–L2). No decúbito dorsal → coluna vertebral comprime o pâncreas anteriormente + mesentério exerce tração sobre o tecido peripancreático inflamado → dor piora. Na posição antálgica (prece maometana: sentado, inclinado para frente) → redução da tração mesentérica + alívio da compressão posterior → dor alivia. O RHA muito diminuído (1–2/min) confirma íleo paralítico por irritação retroperitoneal.', W:'<span class="fbl">✗ Incorreto</span>Piora no decúbito dorsal + melhora na posição sentada inclinada para frente = pancreatite aguda (B). Na colecistite (A), não há posição antálgica definida — o paciente fica imóvel. Na cólica biliar (C), o paciente fica inquieto sem posição definida. A úlcera (E) causa dor que piora com alimentação, não com decúbito dorsal especificamente. A colangite (D) não tem essa posição antálgica — o paciente grave fica prostrado, sonolento.' },
+  19:{ C:'<span class="fbl">✓ Correto</span>Silêncio abdominal no contexto de piora clínica em pancreatite grave = sinal de alarme de <strong>complicação grave</strong>. O silêncio resulta do íleo paralítico por irritação peritoneal generalizada — o peritônio, ao ser agredido por enzimas ativadas ou por pus de necrose infectada, inibe reflexamente a motilidade intestinal. A tríade: febre recorrente + dor difusa + confusão = SIRS grave, compatível com necrose infectada ou peritonite pancreática. A ausculta abdominal por 1–2 minutos antes de afirmar silêncio é técnica obrigatória.', W:'<span class="fbl">✗ Incorreto</span>Silêncio abdominal em piora clínica de pancreatite grave = complicação grave como necrose infectada ou peritonite (C). Não é resolução (B) — melhora teria queda de febre e melhora clínica, não piora. Não é obstrução mecânica simples (A) — que teria RHA metálicos antes do silêncio. O contexto clínico (febre recorrente + confusão + dor difusa progressiva no 5° dia) é mais grave do que colangite secundária isolada (D).' },
+  20:{ C:'<span class="fbl">✓ Correto</span>Diferencial clínico pancreatite vs. cólica biliar: <strong>Cólica biliar</strong>: irradiação para ombro/escápula D (irritação diafragmática por nervo frênico), paciente INQUIETO (dor visceral, busca posição), dor em HCD/epigástrio, autolimitada &lt;6h. <strong>Pancreatite</strong>: irradiação para dorso em FAIXA (T12–L1, topografia retroperitoneal do pâncreas), paciente em posição antálgica DEFINIDA (prece maometana), dor em barra epigástrica cruzando hipocôndrios, NÃO autolimitada, vômitos sem alívio. Esses elementos permitem distinção clínica sem exames laboratoriais.', W:'<span class="fbl">✗ Incorreto</span>Os elementos diferenciais clínicos (C) entre pancreatite e cólica biliar são: (1) irradiação: dorso em faixa (pancreatite) vs. ombro D/escápula (cólica); (2) postura: antálgica definida (prece maometana) vs. inquieto sem posição definida; (3) vômitos: não aliviam (pancreatite) vs. podem aliviar (cólica); (4) duração: não autolimitada vs. &lt;6h. A A erra ao dizer que são indistinguíveis clinicamente. A B erra: pancreatite pode ser afebril nas primeiras horas.' },
+  21:{ B:'<span class="fbl">✓ Correto</span><strong>Tríade de Charcot</strong> = colangite aguda: dor HCD + febre com calafrios + icterícia. Os calafrios violentos com batimento de dentes são a assinatura semiológica da <strong>bacteremia</strong>: liberação súbita de bactérias/endotoxinas na circulação → ativação do sistema complemento + citocinas pirogênicas (IL-1, TNF-α) → pico febril intenso + vasodilatação periférica + tremores. A sequência "cólica biliar há 3 dias → icterícia → calafrios" conta a história: cálculo migrou para colédoco (cólica) → estase → bacteriobilia → bacteremia (calafrios).', W:'<span class="fbl">✗ Incorreto</span>Tríade de Charcot = colangite aguda (B). Os calafrios intensos (batimento de dentes) são a assinatura da bacteremia — distinguem colangite de colecistite (que pode ter febre, mas raramente calafrios tão intensos). A colecistite (A) teria Murphy positivo e sem icterícia (se simples). A pancreatite (C) teria dor em barra irradiando para dorso + posição antálgica. A hiperbilirrubinemia (D) não gera calafrios — essa afirmação é incorreta.' },
+  22:{ B:'<span class="fbl">✓ Correto</span><strong>Pêntade de Reynolds</strong> = colangite tóxica supurativa (Grau III): (1) dor HCD, (2) febre, (3) icterícia, (4) <strong>hipotensão</strong> (choque séptico), (5) <strong>confusão mental</strong> (encefalopatia séptica). É emergência médico-cirúrgica tempo-dependente. Conduta: ressuscitação volêmica + antibiótico de amplo espectro + descompressão biliar URGENTE (CPRE ou drenagem percutânea) + UTI — tudo simultaneamente, não em sequência. A C erra ao adiar a descompressão para "estabilização completa" — na colangite Grau III, a descompressão precoce melhora a sobrevida independentemente da instabilidade hemodinâmica.', W:'<span class="fbl">✗ Incorreto</span>Pêntade de Reynolds (B) = emergência. Os 5 elementos são todos presentes: dor HCD (3 dias) + febre + icterícia + hipotensão (PA 80×50) + confusão. A C erra ao priorizar estabilização antes da descompressão — na Pêntade de Reynolds, a descompressão biliar URGENTE é simultânea à ressuscitação (o tratamento causal não pode ser adiado). A Tríade de Charcot (A) teria apenas 3 dos 5 elementos, sem hipotensão e sem confusão.' },
+  23:{ B:'<span class="fbl">✓ Correto</span>Identificação pelos dados semiológicos: <strong>Paciente A</strong>: febre + Murphy positivo + <em>sem icterícia</em> = obstrução do ducto CÍSTICO com inflamação vesicular isolada = <strong>colecistite aguda</strong>. <strong>Paciente B</strong>: febre com calafrios intensos + icterícia + dor HCD difusa + <em>sem Murphy</em> = obstrução do COLÉDOCO + bacteremia = <strong>colangite aguda moderada</strong> (Tríade de Charcot). <strong>Paciente C</strong>: febre + calafrios + icterícia + hipotensão + confusão = <strong>Pêntade de Reynolds</strong> (colangite tóxica supurativa). O Murphy diferencia colecistite (positivo) de colangite (variável/negativo, pois a vesícula não é obstruída primariamente).', W:'<span class="fbl">✗ Incorreto</span>Paciente A = colecistite (Murphy + febre + sem icterícia). Paciente B = colangite moderada (Tríade de Charcot: calafrios intensos + icterícia + dor HCD + sem Murphy). Paciente C = colangite grave / Pêntade de Reynolds (+ hipotensão + confusão). A A erra ao chamar A de colangite leve e B de colecistite. A D erra ao chamar todos de colecistite em estágios. O Murphy positivo em A distingue colecistite de colangite — na colangite, a vesícula não está obstruída primariamente.' },
+  24:{ B:'<span class="fbl">✓ Correto</span>Recorrência após melhora parcial com antibiótico = obstrução biliar não tratada. <strong>Princípio fundamental da colangite</strong>: antibióticos controlam a infecção temporariamente, mas NÃO eliminam a obstrução biliar. Com o cálculo ainda no colédoco, a estase biliar e a bacteriobilia persistem → ao suspender ou reduzir o antibiótico, a infecção recidiva. O erro da UPA foi tratar apenas a infecção (antibiótico) sem tratar a causa (obstrução mecânica). A colangite recidivante é sinal inequívoco de obstrução biliar persistente não resolvida — o tratamento definitivo é sempre a descompressão biliar.', W:'<span class="fbl">✗ Incorreto</span>A recorrência após antibiótico indica obstrução biliar persistente não tratada (B). Antibióticos não eliminam o cálculo do colédoco. Com a obstrução mantida, a estase e a bacteriobilia persistem → infecção inevitavelmente retorna. A resistência bacteriana (A) é possível mas não é a primeira explicação a considerar. A colecistite recidivante (C) teria Murphy positivo e não necessariamente icterícia + calafrios. O diagnóstico e o princípio de tratamento (descompressão biliar) são o ponto central.' },
+  25:{ B:'<span class="fbl">✓ Correto</span>Identificação pelos dados clínicos exclusivamente: (A) Cólica biliar [autolimitada, pós-prandial, afebril, Murphy negativo, irradiação ombro D, melhora espontânea]. (B) Colecistite [duração &gt;6h, febre, Murphy positivo, imóvel]. (C) Colestase com Courvoisier-Terrier [icterícia verdínica + prurido + colúria + hipocolia + vesícula palpável INDOLOR = neoplasia periampular pela lei de Courvoisier]. (D) Pêntade de Reynolds [5 elementos: febre + calafrios + icterícia + hipotensão + confusão = colangite tóxica supurativa, emergência]. Esses são os marcadores semiológicos que distinguem cada síndrome sem necessidade de exames.', W:'<span class="fbl">✗ Incorreto</span>A alternativa B associa corretamente os 4 casos: (A) Cólica biliar, (B) Colecistite, (C) Colestase com Courvoisier-Terrier, (D) Pêntade de Reynolds. A A inverte A e B e erra C e D. A C tenta identificar B como colangite — mas Murphy positivo + sem icterícia = colecistite, não colangite. A D erra ao negar a Pêntade de Reynolds no caso D, que tem os 5 elementos completos. A E erra em C ao chamar de hepatite colestática crônica ignorando o Sinal de Courvoisier-Terrier (vesícula palpável indolor em ictérico).' }
+};
+
+function ca(q, correct) {
+  if (state.answered[q]) return;
+  const sel = state.answers[q];
+  if (!sel) { alert('Selecione uma alternativa.'); return; }
+  state.answered[q] = true;
+  const card = document.getElementById('qc-' + q);
+  const fb = document.getElementById('fb-' + q);
+  const btn = document.getElementById('btn-' + q);
+  btn.disabled = true;
+  card.classList.add('answered');
+  card.querySelectorAll('.opt').forEach(o => {
+    o.style.pointerEvents = 'none';
+    if (o.dataset.o === correct) o.classList.add('ok');
+    else if (o.dataset.o === sel && sel !== correct) o.classList.add('ng');
+  });
+  const isOk = sel === correct;
+  const sec = getSec(q);
+  if (isOk) { state.totCorrect++; secScores[sec]++; }
+  state.totAnswered++;
+  const fbd = FB[q];
+  fb.innerHTML = isOk ? fbd[correct] : fbd.W;
+  fb.className = 'fb ' + (isOk ? 'ok-fb' : 'ng-fb');
+  const sc = document.getElementById('sc-' + sec);
+  if (sc) sc.textContent = secNames[sec] + ': ' + secScores[sec] + '/5';
+  if (state.totAnswered === 25) showTotal();
+}
+function showTotal() {
+  const panel = document.getElementById('total-panel');
+  panel.style.display = 'block';
+  document.getElementById('tscore').textContent = state.totCorrect + '/25';
+  const msgs = ['Revise a fisiopatologia desde o início — identifique o mecanismo de cada síndrome antes de tentar reconhecê-la clinicamente.','Os feedbacks das questões erradas têm o caminho: cada síndrome tem sua assinatura semiológica específica.','Progresso sólido. Aprofunde os diferenciais clínicos — especialmente colangite vs. colecistite e cólica vs. pancreatite.','Muito bom! Você já identifica as síndromes pelo quadro clínico. Revise as questões erradas para fechar as lacunas.','Excelente! Raciocínio clínico integrado no nível exigido pelo Prof. Esteves.','Perfeito — domínio completo das 5 síndromes e sua identificação semiológica.'];
+  document.getElementById('tsmsg').textContent = msgs[Math.min(Math.floor(state.totCorrect/5),5)];
+  panel.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetAll() {
+  state.answers={}; state.answered={}; state.totCorrect=0; state.totAnswered=0;
+  for (const k of Object.keys(secScores)) secScores[k]=0;
+  document.querySelectorAll('.qcard').forEach(c => {
+    c.classList.remove('answered');
+    c.querySelectorAll('.opt').forEach(o=>{o.className='opt';o.style.pointerEvents='';});
+    const n=c.id.split('-')[1];
+    if(n){
+      const fb=document.getElementById('fb-'+n);
+      if(fb){fb.className='fb';fb.innerHTML='';}
+      const btn=document.getElementById('btn-'+n);
+      if(btn) btn.disabled=false;
+    }
+  });
+  document.querySelectorAll('.qscore').forEach(s=>{
+    const map={'sc-cole':'Colelitíase','sc-cole2':'Colestase','sc-cole3':'Colecistite','sc-pnc':'Pancreatite','sc-col':'Colangite'};
+    if(map[s.id]) s.textContent=map[s.id]+': 0/5';
+  });
+  document.getElementById('total-panel').style.display='none';
+  document.getElementById('quiz-wrap').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
